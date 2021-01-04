@@ -39,7 +39,7 @@ export default class Board extends React.Component {
     this.refs[i1].setState({ className: "found" })
     this.refs[i2].setState({ className: "found" })
 
-    if (this.props.state.matchesMade === this.props.totalCards - 1) {
+    if (this.props.state.matchesMade === this.props.pairCount - 1) {
       // We have a wienner!!
       this.onWin()
     }
