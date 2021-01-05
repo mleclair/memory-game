@@ -2,7 +2,7 @@ export default class Resources {
 
   /*  Full list of icons to be used  */
   static readonly icons = [
-    "airplane", "american-football", "aperture", "basketball", "beer", "bicycle", "book", "build", "bulb", "cafe", "cellular", "cog", "construct", "cube", "female", "fitness", "flag", "flame", "flash", "flask", "gift", "glasses", "globe", "hammer", "heart", "home", "hourglass", "ice-cream", "infinite", "jet", "leaf", "male", "megaphone", "mic", "moon", "musical-notes", "nuclear", "nutrition", "paw", "pin", "pizza", "planet", "pulse", "rainy", "recording", "restaurant", "ribbon", "rocket", "school", "send", "settings", "shirt", "shuffle", "snow", "speedometer", "star-outline", "stats", "sunny", "switch", "tennisball", "thermometer", "thumbs-up", "thunderstorm", "timer", "train", "transgender", "trophy", "tv", "umbrella", "unlock", "videocam", "volume-off", "walk", "wallet", "wifi", "wine", "woman"
+    "airplane", "american-football", "aperture", "basketball", "beer", "bicycle", "bonfire", "book", "build", "bulb", "cafe", "cellular", "cog", "compass",  "construct", "cube", "female", "fitness", "flag", "flame", "flash", "flask", "football", "gift", "glasses", "globe", "hammer", "heart", "home", "hourglass", "ice-cream", "infinite", "jet", "leaf", "male", "megaphone", "mic", "moon", "musical-notes", "nuclear", "nutrition", "paw", "pin", "pizza", "photos", "planet", "pulse", "rainy", "recording", "restaurant", "ribbon", "rocket", "school", "send", "shirt", "shuffle", "snow", "speedometer", "star-outline", "sunny", "tennisball", "thermometer", "thumbs-up", "thunderstorm", "timer", "train", "transgender", "trophy", "tv", "umbrella", "unlock", "videocam", "volume-off", "walk", "wallet", "wifi", "wine", "woman"
   ];
 
   /*    */

@@ -19,7 +19,19 @@ export default class Menu extends React.Component {
     /*  Render Menu  */
     render() {
         return (
-            <div className={this.props.state.isMenuOpen ? "visible" : "hidden"} />
+            <div className={this.props.state.isMenuOpen ? "visible" : "hidden"}>
+                <div>
+                    <ul>
+                        <li className=""><i className="ion ion-md-settings" /></li>
+                        <li className=""><i className="ion ion-md-information-circle" /></li>
+                        <li className=""><i className="ion ion-md-stats" /></li>
+                        <li className=""><i className="ion ion-md-switch" /></li>
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+            </div>
         );
     }
 }
