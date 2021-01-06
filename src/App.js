@@ -4,7 +4,6 @@ import Board from "./components/Board.js";
 import Menu from "./components/Menu.js";
 import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
-import Utilities from "./resources/Utilities.ts";
 import GameBoard from "./models/GameBoard.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
 
@@ -31,7 +30,6 @@ class Game extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.onMenuClick = this.onMenuClick.bind(this)
-    this.getCircles = this.getCircles.bind(this)
 
     this.pairCount = props.pairCount;
 
@@ -49,34 +47,14 @@ class Game extends React.Component {
     }
   }
 
-  static icos = Game.getRandomIcons(Resources.icons)
-  static randomPairs = Game.randomizedCardPairs()
-  static pairCount;
-  static gameBoard = Game.getGameBoard();
-
   static getGameBoard() {
     return new GameBoard(Resources.boards[gameNumber].name,
                          Resources.boards[gameNumber].displayNames,
                          Resources.boards[gameNumber].include,
-                         Resources.boards[gameNumber].circles)
+                         Resources.boards[gameNumber].circles,
+                         Resources.icons)
   }
-
-  /*    */
-  static getRandomIcons(icons) {
-    let ic = icons
-    ic = Utilities.Shuffle(ic)
-    return ic.slice(0, Resources.boards[gameNumber].pairCount);
-  }
-
-  /*    */
-  static randomizedCardPairs() {
-    let cards = Utilities.Shuffle(this.icos)
-
-    // Add them a second time to get pairs
-    let pairs = cards.concat(cards)
-
-    return Utilities.Shuffle(pairs);
-  }
+  static gameBoard = Game.getGameBoard()
 
   /*    */
   onTimerStart = () => this.startTimer()
@@ -146,9 +124,6 @@ class Game extends React.Component {
   }
 
   /*    */
-  getCircles = (circles) => [].concat.apply([], circles);
-
-  /*    */
   onWin() {
     this.stopTimer()
     this.setState({ showScore: true, winner: true })
@@ -162,7 +137,6 @@ class Game extends React.Component {
   /*    */
   onMenuClick() {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
-    //alert("menu open: " + String(this.state.isMenuOpen))
   }
 
   /*    */
@@ -175,9 +149,9 @@ class Game extends React.Component {
         <div>
           <div className="outer">
             <Board state={this.state}
-              cards={Game.randomPairs}
+              cards={Game.gameBoard.pairs}
               pairCount={Resources.boards[gameNumber].pairCount}
-              circles={this.getCircles(Resources.boards[gameNumber].circles)}
+              circles={Game.gameBoard.circles}
               onTimerStart={this.onTimerStart}
               onFoundMatch={this.onFoundMatch}
               onNoMatch={this.onNoMatch}
@@ -185,7 +159,7 @@ class Game extends React.Component {
           </div>
           <div className="game-info">
             <Score state={this.state}
-              icons={Game.icos}
+              icons={Game.gameBoard.icons}
               onFoundMatch={this.onFoundMatch}
               onReset={this.onReset} />
           </div>
@@ -198,7 +172,7 @@ class Game extends React.Component {
               height={15}
               strokeWidth={1}
               rotate={0}
-              color='darkgray'
+              color="darkgray"
               borderRadius={0}
               animationDuration={0.5} />
           </div>
