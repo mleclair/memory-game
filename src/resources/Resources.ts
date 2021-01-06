@@ -59,8 +59,33 @@ export default class Resources {
       ]
     },
     {
+      "name": "letterM",
+      "displayNames": [
+        {
+          "lang": "en",
+          "name": "M"
+        }
+      ],
+      "include": true,
+      "pairCount": 68,
+      "circles": [
+        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "trans", "navy", "navy", "navy", "navy", "navy", "navy", "trans", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "navy", "navy", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"]
+      ]
+    },
+    {
       "name": "numbris",
-      "displayName": [
+      "displayNames": [
         {
           "lang": "en",
           "name": "Forgotten"

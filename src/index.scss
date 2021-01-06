@@ -118,7 +118,6 @@ body {
 									margin: 10%;
 									padding: 0px;
 									border-radius: 50%;
-									background-color: $dark-blue;
 									// animation-timing-function: ease-in-out;
 									//transition-duration: 0.4s;
 									// -webkit-transform: translateZ(0) scaleX(-1) scaleY(1);
@@ -132,11 +131,24 @@ body {
 										background-color: transparent;
 									}
 								}
-								div.ltblu {
+								div.navy {
+									background-color: $dark-blue;
+								}
+								div.mdblu {
 									background-color: $med-blue;
+								}
+								div.ltblu {
+									background-color: $lt-blu;
 								}
 								div.ltgrn {
 									background-color: $lt-grn;
+								}
+								div.skyblu {
+									background-color: $sky-blue;
+								}
+								div.ltskyblu {
+									background-color: $sky-blue;
+									opacity: 0.5;
 								}
 								div.grn {
 									background-color: $grn;
@@ -150,15 +162,8 @@ body {
 								div.drkorng {
 									background-color: $dark-orange;
 								}
-								div.skyblu {
-									background-color: $sky-blue;
-								}
 								div.ltgry {
 									background-color: $lt-gry;
-								}
-								div.ltskyblu {
-									background-color: $sky-blue;
-									opacity: 0.5;
 								}
 								div.found {
 									opacity: .5;

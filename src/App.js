@@ -18,6 +18,8 @@ class App extends Component {
   }
 }
 
+const gameNumber = 2;
+
 class Game extends React.Component {
   constructor(props) {
     super(props)
@@ -48,12 +50,12 @@ class Game extends React.Component {
   static icos = Game.getRandomIcons(Resources.icons)
   static randomPairs = Game.randomizedCardPairs()
   static pairCount;
-
+ 
   /*    */
   static getRandomIcons(icons) {
     let ic = icons
     ic = Utilities.Shuffle(ic)
-    return ic.slice(0, Resources.boards[1].pairCount);
+    return ic.slice(0, Resources.boards[gameNumber].pairCount);
   }
 
   /*    */
@@ -113,7 +115,7 @@ class Game extends React.Component {
 
     this.setState({ showScore: true })
 
-    if (this.state.matchesMade === Resources.boards[1].pairCount - 1) {
+    if (this.state.matchesMade === Resources.boards[gameNumber].pairCount - 1) {
       this.onWin()
     }
     else {
@@ -172,8 +174,8 @@ class Game extends React.Component {
           <div className="outer">
             <Board state={this.state}
               cards={Game.randomPairs}
-              pairCount={Resources.boards[1].pairCount}
-              circles={this.getCirlces(Resources.boards[1].circles)}
+              pairCount={Resources.boards[gameNumber].pairCount}
+              circles={this.getCirlces(Resources.boards[gameNumber].circles)}
               onTimerStart={this.onTimerStart}
               onFoundMatch={this.onFoundMatch}
               onNoMatch={this.onNoMatch}
