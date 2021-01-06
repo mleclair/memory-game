@@ -4,6 +4,7 @@ import Board from "./components/Board.js";
 import Menu from "./components/Menu.js";
 import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
+import Utilities from "./resources/Utilities.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
 
 class App extends Component {
@@ -51,18 +52,18 @@ class Game extends React.Component {
   /*    */
   static getRandomIcons(icons) {
     let ic = icons
-    ic = Resources.Shuffle(ic)
+    ic = Utilities.Shuffle(ic)
     return ic.slice(0, Resources.boards[1].pairCount);
   }
 
   /*    */
   static randomizedCardPairs() {
-    let cards = Resources.Shuffle(this.icos)
+    let cards = Utilities.Shuffle(this.icos)
 
     // Add them a second time to get pairs
     let pairs = cards.concat(cards)
 
-    return Resources.Shuffle(pairs);
+    return Utilities.Shuffle(pairs);
   }
 
   /*    */
