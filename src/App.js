@@ -5,6 +5,7 @@ import Menu from "./components/Menu.js";
 import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
 import Utilities from "./resources/Utilities.ts";
+import GameBoard from "./models/GameBoard.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
 
 class App extends Component {
@@ -30,6 +31,7 @@ class Game extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.onMenuClick = this.onMenuClick.bind(this)
+    this.getCircles = this.getCircles.bind(this)
 
     this.pairCount = props.pairCount;
 
@@ -50,7 +52,15 @@ class Game extends React.Component {
   static icos = Game.getRandomIcons(Resources.icons)
   static randomPairs = Game.randomizedCardPairs()
   static pairCount;
- 
+  static gameBoard = Game.getGameBoard();
+
+  static getGameBoard() {
+    return new GameBoard(Resources.boards[gameNumber].name,
+                         Resources.boards[gameNumber].displayNames,
+                         Resources.boards[gameNumber].include,
+                         Resources.boards[gameNumber].circles)
+  }
+
   /*    */
   static getRandomIcons(icons) {
     let ic = icons
@@ -69,14 +79,10 @@ class Game extends React.Component {
   }
 
   /*    */
-  onTimerStart() {
-    this.startTimer()
-  }
+  onTimerStart = () => this.startTimer()
 
   /*    */
-  onTimerStop() {
-    this.stopTimer()
-  }
+  onTimerStop = () => this.stopTimer()
 
   /*    */
   startTimer() {
@@ -98,9 +104,7 @@ class Game extends React.Component {
   }
 
   /*    */
-  resetTimer() {
-    this.setState({ elapsed: 0, isTimerOn: false })
-  }
+  resetTimer = () => this.setState({ elapsed: 0, isTimerOn: false })
 
   /*    */
   onFoundMatch(icon) {
@@ -142,9 +146,7 @@ class Game extends React.Component {
   }
 
   /*    */
-  getCirlces(circles) {
-    return [].concat.apply([], circles);
-  }
+  getCircles = (circles) => [].concat.apply([], circles);
 
   /*    */
   onWin() {
@@ -175,7 +177,7 @@ class Game extends React.Component {
             <Board state={this.state}
               cards={Game.randomPairs}
               pairCount={Resources.boards[gameNumber].pairCount}
-              circles={this.getCirlces(Resources.boards[gameNumber].circles)}
+              circles={this.getCircles(Resources.boards[gameNumber].circles)}
               onTimerStart={this.onTimerStart}
               onFoundMatch={this.onFoundMatch}
               onNoMatch={this.onNoMatch}
