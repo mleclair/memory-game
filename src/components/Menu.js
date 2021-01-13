@@ -10,7 +10,9 @@ export default class Menu extends React.Component {
 
         this.state = {
             isMenuOpen: props.state.isMenuOpen,
-            selectedGameName: props.state.selectedGameName
+            selectedGameName: props.state.selectedGameName,
+            gameBoardNames: props.gameBoardNames,
+            language: props.state.language
         }
     }
 
@@ -38,11 +40,12 @@ export default class Menu extends React.Component {
                     <ul>
                         <li>
                             <select id="selectedGame" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>
-                                <option value="ice-cube">Ice Cube</option>
-                                <option value="jet">Jet</option>
-                                <option value="letterM">Letter M</option>
-                                <option value="numbris">Forgotten</option>
-                                
+                                {this.props.gameBoardNames.map(function(name) {
+                                        return <option value={name.name}>{name.displayNames.map(function(displayName){
+                                            return displayName.name
+                                        })}</option>
+                                    })
+                                }
                             </select>
                         </li>
                     </ul>

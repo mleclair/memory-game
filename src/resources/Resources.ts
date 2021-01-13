@@ -28,7 +28,7 @@ export default class Resources {
       "include": true
     },
     {
-      "name": "letterM",
+      "name": "letter-m",
       "displayNames": [
         {
           "lang": "en",
@@ -89,7 +89,7 @@ export default class Resources {
       ]
     },
     {
-      "name": "letterM",
+      "name": "letter-m",
       "pairCount": 68,
       "circles": [
         ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],

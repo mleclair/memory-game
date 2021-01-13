@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Game icons={Resources.icons} />
+        <Game icons={Resources.icons} gameBoardNames={Resources.gameBoardNames} />
       </div>
     );
   }
@@ -21,7 +21,6 @@ class App extends Component {
 
 var defaultSelectedGameName = "jet"
 var lang = "en"
-//var gameBoardNames = [];
   
 class Game extends React.Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class Game extends React.Component {
     this.getGameBoard = this.getGameBoard.bind(this)
     this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
     
-    //this.gameBoardNames = this.gameBoardNames.bind(this)
+    this.gameBoardNames = this.getGameBoardNames()
     this.pairCount = props.pairCount;
   
     this.state = {
@@ -53,14 +52,11 @@ class Game extends React.Component {
       selectedGameName: defaultSelectedGameName,
       gameBoard: this.getGameBoard(defaultSelectedGameName)
     }
-    
-    //gameBoardNames = [];
   }
 
   /*    */
   getGameBoard (gameName) {
     //alert(gameName)
-    //var gameBoardName = Resources.gameBoardNames.filter(e => e.name === gameName)[0]
     var board = Resources.gameBoards.filter(e => e.name === gameName)[0]
     return new GameBoard(gameName,
                          board.circles,
@@ -73,8 +69,9 @@ class Game extends React.Component {
 
   /*    */
   onGameBoardSelectionChange(gameName) {
-     this.setState({ gameBoard: this.getGameBoard(gameName) })
-     this.resetBoard()
+    alert(gameName)
+    this.setState({ selectedGameName: gameName, gameBoard: this.getGameBoard(gameName) })
+    this.resetBoard()
   }
 
   /*    */
@@ -158,7 +155,7 @@ class Game extends React.Component {
 
   /*    */
   resetBoard() {
-    //alert(this.state.gameBoard.name)
+    //alert(this.state.selectedGameName)
   }
 
   /*    */
@@ -171,7 +168,7 @@ class Game extends React.Component {
         <div className="menu">
           <Menu state={this.state}
                 onGameBoardSelectionChange={this.onGameBoardSelectionChange} 
-                gameBoardList={this.gameBoardList} />
+                gameBoardNames={this.gameBoardNames} />
         </div>
         <div>
           <div className="outer">
@@ -199,7 +196,7 @@ class Game extends React.Component {
               menuClicked={this.onMenuClick}
               width={0}
               height={0}
-              strokeWidth={2}
+              strokeWidth={5}
               rotate={0}
               color="darkgray"
               borderRadius={0}
