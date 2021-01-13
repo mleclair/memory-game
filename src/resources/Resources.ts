@@ -6,7 +6,7 @@ export default class Resources {
   ];
 
   /*    */
-  static readonly boards = [
+  static readonly gameBoardNames = [
     {
       "name": "ice-cube",
       "displayNames": [
@@ -15,7 +15,44 @@ export default class Resources {
           "name": "Ice Cube"
         }
       ],
-      "include": true,
+      "include": true
+    },
+    {
+      "name": "jet",
+      "displayNames": [
+        {
+          "lang": "en",
+          "name": "Jet"
+        }
+      ],
+      "include": true
+    },
+    {
+      "name": "letterM",
+      "displayNames": [
+        {
+          "lang": "en",
+          "name": "Letter M"
+        }
+      ],
+      "include": true
+    },
+    {
+      "name": "numbris",
+      "displayNames": [
+        {
+          "lang": "en",
+          "name": "Forgotten"
+        }
+      ],
+      "include": false
+    }
+  ]
+
+  /*    */
+  static readonly gameBoards = [
+    {
+      "name": "ice-cube",
       "pairCount": 70,
       "circles":
         [
@@ -35,13 +72,6 @@ export default class Resources {
     },
     {
       "name": "jet",
-      "displayNames": [
-        {
-          "lang": "en",
-          "name": "Jet"
-        }
-      ],
-      "include": true,
       "pairCount": 35,
       "circles": [
         ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
@@ -60,13 +90,6 @@ export default class Resources {
     },
     {
       "name": "letterM",
-      "displayNames": [
-        {
-          "lang": "en",
-          "name": "Letter M"
-        }
-      ],
-      "include": true,
       "pairCount": 68,
       "circles": [
         ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
@@ -85,13 +108,6 @@ export default class Resources {
     },
     {
       "name": "numbris",
-      "displayNames": [
-        {
-          "lang": "en",
-          "name": "Forgotten"
-        }
-      ],
-      "include": false,
       "pairCount": 70,
       "circles":
         [

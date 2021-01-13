@@ -6,7 +6,7 @@ import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
 import GameBoard from "./models/GameBoard.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
-import GameBoardName from "./models/GameBoardName.ts";
+//import GameBoardName from "./models/GameBoardName.ts";
 
 class App extends Component {
 
@@ -21,7 +21,7 @@ class App extends Component {
 
 var defaultSelectedGameName = "jet"
 var lang = "en"
-var gameBoardNames = [];
+//var gameBoardNames = [];
   
 class Game extends React.Component {
   constructor(props) {
@@ -60,16 +60,15 @@ class Game extends React.Component {
   /*    */
   getGameBoard (gameName) {
     //alert(gameName)
-    var board = Resources.boards.filter(e => e.name === gameName)[0]
+    //var gameBoardName = Resources.gameBoardNames.filter(e => e.name === gameName)[0]
+    var board = Resources.gameBoards.filter(e => e.name === gameName)[0]
     return new GameBoard(gameName,
                          board.circles,
                          Resources.icons)
   }
 
   getGameBoardNames () {
-    //Resources.boards.forEach(board => {
-      //gameBoardNames.push(new )
-    //});
+    return Resources.gameBoardNames
   }
 
   /*    */
@@ -159,7 +158,7 @@ class Game extends React.Component {
 
   /*    */
   resetBoard() {
-    alert("!!")
+    //alert(this.state.gameBoard.name)
   }
 
   /*    */
