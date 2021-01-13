@@ -1,5 +1,5 @@
 import Utilities from "../resources/Utilities";
-import GameBoardName from "./GameBoardName";
+//import GameBoardName from "./GameBoardName";
 
 export default class GameBoard {
   name: string;
