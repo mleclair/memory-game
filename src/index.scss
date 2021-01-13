@@ -15,7 +15,7 @@ $background  : #EEEEEE;
 $drk-gry     : #414042;
 $lt-gry		 : #C0C0C0;
 
-$offsetAmount: 1.1; 
+$offsetAmount: 1.35; 
 $transitionTime: 0.12s;
 
 %display-flex {
@@ -74,8 +74,8 @@ body {
 					position: absolute;
 					top: 2vw;
 					right: 2vw;
-					width: 2vw;
-					height: 2vw;
+					width: 4vw;
+					height: 4vw;
 					cursor: pointer;
 					opacity: 0;
 					-webkit-transition: opacity .5s ease-in-out 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -83,6 +83,10 @@ body {
 					-ms-transition: opacity .5s ease-in-out 2s; /* Internet Explorer */
 					-o-transition: opacity .5s ease-in-out 2s; /* Opera < 12.1 */
 					transition: opacity .5s ease-in-out 2s;
+					div {
+						margin-left: auto;
+						margin-right: 0;
+					}
 				}
 				div.hamburger:hover {
 					opacity: 1.0;
@@ -220,7 +224,7 @@ body {
 							}
 						}
 						div.grid-container:not(.winner) {
-							div > div:not(.trans) { cursor: pointer; }
+							div > div:not(.trans):not(.found) { cursor: pointer; }
 							div {
 								div.clicked {
 									@extend %card-hover;
@@ -303,6 +307,7 @@ body {
 								line-height: 4vw;
 								letter-spacing: .65vw;
 								text-align: center;
+								align-items: center;
 							}
 							div.scoreboard {
 								background-color: $background;
@@ -346,7 +351,7 @@ body {
 								margin-top: 1.0vw;
 								display: block;
 								padding-top: .75vw;
-								padding-left: .5vw;
+								// padding-left: .5vw;
 								padding-bottom: .85vw;
 								div {
 									position: relative;
@@ -370,6 +375,9 @@ body {
 									}
 								}
 							}
+							div.found-cards:empty {
+								display: none;
+							}
 						}
 					}
 				}
@@ -388,7 +396,7 @@ body {
 				@extend %display-flex;
 				ul {
 					display: block;
-					margin: 3vw; 
+					margin: 2vw; 
 					width: 10vw; 
 					height: 100%; 
 					padding: 0; 
@@ -403,13 +411,12 @@ body {
 						opacity: 0.6; 
 						mix-blend-mode: screen;
 						position: absolute; 
-						top: 0; 
-						left: 0; 
+						top: 0;
+						left: 0;
 						transition: transform $transitionTime ease-out, opacity $transitionTime ease-out, color $transitionTime ease-out; 
 						cursor: pointer; 
 						text-align: center; 
 						color: white; 
-						font-family: 'fontawesome'; 
 						color: transparent;
 						font-size: 4vw;
 						i {
@@ -451,25 +458,25 @@ body {
 					} 
 				}	
 				ul:hover {
-					height: (4 * $offsetAmount) * 6vw; 
+					height: (4 * $offsetAmount) * 5vw; 
 					li {
 						color: white; 
 					}
 					@for $i from 1 through 4 {
 					li:nth-child(#{$i}){ 
-						transform: translate(0, ($i - 1) * ($offsetAmount * 100%));
-						&:hover{
+							transform: translate(0, ($i - 1) * ($offsetAmount * 100%));
+							&:hover{
+								opacity: 1; 
+								transition-timing-function: cubic-bezier(.5,0,.5,1);
+								transform: translate(0, ($i - 1) * ($offsetAmount * 100%))  scale(1.15, 1.15); 
+								transition-duration: $transitionTime*2; 
+							}
+						}
+						li:nth-child(#{$i}):after{
 							opacity: 1; 
-							transition-timing-function: cubic-bezier(.5,0,.5,1);
-							transform: translate(0, ($i - 1) * ($offsetAmount * 100%))  scale(1.15, 1.15); 
-							transition-duration: $transitionTime*2; 
+							transition-delay: ($transitionTime/1.5) * $i; 
 						}
 					}
-					li:nth-child(#{$i}):after{
-						opacity: 1; 
-						transition-delay: ($transitionTime/1.5) * $i; 
-					}
-				}
 				}
 			}
 			div.hidden {
@@ -487,14 +494,6 @@ body {
 			}
 		}
 	}
-}
-
-#hamburger {
-	position: absolute;
-	top: 2vw;
-	right: 2vw;
-	pointer-events: auto;
-	cursor: pointer;
 }
 
 #lang {

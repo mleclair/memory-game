@@ -6,6 +6,7 @@ import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
 import GameBoard from "./models/GameBoard.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
+import GameBoardName from "./models/GameBoardName.ts";
 
 class App extends Component {
 
@@ -18,8 +19,10 @@ class App extends Component {
   }
 }
 
-const gameNumber = 2;
-
+var defaultSelectedGameName = "jet"
+var lang = "en"
+var gameBoardNames = [];
+  
 class Game extends React.Component {
   constructor(props) {
     super(props)
@@ -30,9 +33,12 @@ class Game extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.onMenuClick = this.onMenuClick.bind(this)
-
+    this.getGameBoard = this.getGameBoard.bind(this)
+    this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+    
+    //this.gameBoardNames = this.gameBoardNames.bind(this)
     this.pairCount = props.pairCount;
-
+  
     this.state = {
       attemptCount: 0,
       matchesMade: 0,
@@ -42,19 +48,35 @@ class Game extends React.Component {
       elapsed: 0,
       showScore: false,
       isMenuOpen: false,
-      language: "en",
-      winner: false
+      language: lang,
+      winner: false,
+      selectedGameName: defaultSelectedGameName,
+      gameBoard: this.getGameBoard(defaultSelectedGameName)
     }
+    
+    //gameBoardNames = [];
   }
 
-  static getGameBoard() {
-    return new GameBoard(Resources.boards[gameNumber].name,
-                         Resources.boards[gameNumber].displayNames,
-                         Resources.boards[gameNumber].include,
-                         Resources.boards[gameNumber].circles,
+  /*    */
+  getGameBoard (gameName) {
+    //alert(gameName)
+    var board = Resources.boards.filter(e => e.name === gameName)[0]
+    return new GameBoard(gameName,
+                         board.circles,
                          Resources.icons)
   }
-  static gameBoard = Game.getGameBoard()
+
+  getGameBoardNames () {
+    //Resources.boards.forEach(board => {
+      //gameBoardNames.push(new )
+    //});
+  }
+
+  /*    */
+  onGameBoardSelectionChange(gameName) {
+     this.setState({ gameBoard: this.getGameBoard(gameName) })
+     this.resetBoard()
+  }
 
   /*    */
   onTimerStart = () => this.startTimer()
@@ -97,7 +119,7 @@ class Game extends React.Component {
 
     this.setState({ showScore: true })
 
-    if (this.state.matchesMade === Resources.boards[gameNumber].pairCount - 1) {
+    if (this.state.matchesMade === this.state.gameBoard.pairCount - 1) {
       this.onWin()
     }
     else {
@@ -114,6 +136,7 @@ class Game extends React.Component {
   }
 
   /*    */
+  //onLanguageChange = () => this.setState({ language: this.state.language === "en" ? "en" : "fr" })
   onLanguageChange() {
     if (this.state.language === "en") {
       this.setState({ language: "fr" })
@@ -135,31 +158,38 @@ class Game extends React.Component {
   }
 
   /*    */
-  onMenuClick() {
-    this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  resetBoard() {
+    alert("!!")
   }
+
+  /*    */
+  onMenuClick = (e) => this.setState({ isMenuOpen: !this.state.isMenuOpen })
 
   /*    */
   render() {
     return (
       <div>
         <div className="menu">
-          <Menu state={this.state} />
+          <Menu state={this.state}
+                onGameBoardSelectionChange={this.onGameBoardSelectionChange} 
+                gameBoardList={this.gameBoardList} />
         </div>
         <div>
           <div className="outer">
             <Board state={this.state}
-              cards={Game.gameBoard.pairs}
-              pairCount={Resources.boards[gameNumber].pairCount}
-              circles={Game.gameBoard.circles}
+              cards={this.state.gameBoard.pairs}
+              pairCount={this.state.gameBoard.pairCount}
+              circles={this.state.gameBoard.circles}
               onTimerStart={this.onTimerStart}
               onFoundMatch={this.onFoundMatch}
               onNoMatch={this.onNoMatch}
-              onWin={this.onWin} />
+              onWin={this.onWin}
+              resetBoard={this.resetBoard}
+              onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
           </div>
           <div className="game-info">
             <Score state={this.state}
-              icons={Game.gameBoard.icons}
+              icons={this.state.gameBoard.icons}
               onFoundMatch={this.onFoundMatch}
               onReset={this.onReset} />
           </div>
@@ -168,9 +198,9 @@ class Game extends React.Component {
             <HamburgerMenu
               isOpen={this.state.isMenuOpen}
               menuClicked={this.onMenuClick}
-              width={18}
-              height={15}
-              strokeWidth={1}
+              width={0}
+              height={0}
+              strokeWidth={2}
               rotate={0}
               color="darkgray"
               borderRadius={0}

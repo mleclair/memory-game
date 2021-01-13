@@ -2,7 +2,7 @@ export default class Utilities {
 
   /*  Randomly shuffles an array  */
   static Shuffle(array: string[]): string[] {
-    if (array) {
+    if (array && array.length > 0) {
       let currentIndex = array.length, temporaryValue, randomIndex
 
       while (0 !== currentIndex) {

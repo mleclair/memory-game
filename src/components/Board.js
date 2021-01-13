@@ -9,6 +9,7 @@ export default class Board extends React.Component {
     this.onFoundMatch = this.onFoundMatch.bind(this)
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
+    this.resetBoard = this.resetBoard.bind(this)
 
     this.state = {
       firstCardSelection: true,
@@ -115,6 +116,10 @@ export default class Board extends React.Component {
     else {
       this.onNoMatch(e);
     }
+  }
+
+  resetBoard() {
+    
   }
 
   /*    */

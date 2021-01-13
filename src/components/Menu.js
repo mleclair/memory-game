@@ -6,17 +6,23 @@ export default class Menu extends React.Component {
 
         this.onMenuClick = this.onMenuClick.bind(this)
 
+        this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+
         this.state = {
-            isMenuOpen: props.state.isMenuOpen
-            //alert('chngd')
+            isMenuOpen: props.state.isMenuOpen,
+            selectedGameName: props.state.selectedGameName
         }
     }
 
-    onMenuClick() {
-        this.props.onMenuClick()
+    onMenuClick = (e) => this.props.onMenuClick(e)
+
+    onGameBoardSelectionChange(event) {
+        var val = event.target.value;
+        //alert(val)
+        this.props.onGameBoardSelectionChange(val)
+        this.setState({ selectedGameName: val })
     }
 
-    /*  Render Menu  */
     render() {
         return (
             <div className={this.props.state.isMenuOpen ? "visible" : "hidden"}>
@@ -29,10 +35,40 @@ export default class Menu extends React.Component {
                     </ul>
                 </div>
                 <div>
-
+                    <ul>
+                        <li>
+                            <select id="selectedGame" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>
+                                <option value="ice-cube">Ice Cube</option>
+                                <option value="jet">Jet</option>
+                                <option value="letterM">Letter M</option>
+                                <option value="numbris">Forgotten</option>
+                                
+                            </select>
+                        </li>
+                    </ul>
                 </div>
             </div>
         );
     }
 }
+
+// var mydropDown = React.createClass({
+//     getInitialState: function() {
+//         return { value: "select" }
+//     },
+//     change: function(event) {
+//         this.setState({ selectedGameName: event.target.value })
+//     },
+//     render: function() {
+//         return (
+//             <select id="selectedGame" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>
+//                 <option value="ice-cube">Ice Cube</option>
+//                 <option value="jet">Jet</option>
+//                 <option value="letterM">Letter M</option>
+//                 <option value="numbris">Forgotten</option>
+//             </select>
+//         );
+//     }
+// })
+
 

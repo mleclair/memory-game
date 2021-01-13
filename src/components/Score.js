@@ -32,7 +32,7 @@ export default class Score extends React.Component {
 
   render() {
     const remaining = this.props.icons.length - this.props.state.matchesMade
-    const completion = Math.round(100.0 * (this.props.state.matchesMade / this.props.icons.length))
+    const completion = Math.round(100.0 * ((this.props.icons === undefined) ? 0 : (this.props.state.matchesMade / this.props.icons.length)))
     const accuracy = this.props.state.attemptCount === 0 ? 0 : Math.round((this.props.state.matchesMade * 100) / (this.props.state.attemptCount))
     const elaspsed = this.props.state.elapsed < 60000 ? 0 : Math.floor(this.props.state.elapsed / 60000)
 

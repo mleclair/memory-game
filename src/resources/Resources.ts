@@ -38,7 +38,7 @@ export default class Resources {
       "displayNames": [
         {
           "lang": "en",
-          "name": ""
+          "name": "Jet"
         }
       ],
       "include": true,
@@ -63,7 +63,7 @@ export default class Resources {
       "displayNames": [
         {
           "lang": "en",
-          "name": "M"
+          "name": "Letter M"
         }
       ],
       "include": true,
