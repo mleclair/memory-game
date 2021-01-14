@@ -403,6 +403,20 @@ body {
 					position: relative;
 					z-index: 1;
 					li {
+						background-color: transparent;
+						transition: none;
+						list-style-type: none;
+					}
+				}
+			}
+			div.menu-option-panel {
+				ul:hover {
+					height: 5vw;
+				}
+			}
+			div.menu-options {
+				ul {
+					li {
 						display: block; 
 						width: 6vw;
 						height: 6vw; 

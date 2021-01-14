@@ -28,7 +28,7 @@ export default class Menu extends React.Component {
     render() {
         return (
             <div className={this.props.state.isMenuOpen ? "visible" : "hidden"}>
-                <div>
+                <div className="menu-options">
                     <ul>
                         <li className=""><i className="ion ion-md-settings" /></li>
                         <li className=""><i className="ion ion-md-information-circle" /></li>
@@ -36,7 +36,7 @@ export default class Menu extends React.Component {
                         <li className=""><i className="ion ion-md-switch" /></li>
                     </ul>
                 </div>
-                <div>
+                <div className="menu-option-panel">
                     <ul>
                         <li>
                             <select id="selectedGame" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>
