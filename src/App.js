@@ -20,7 +20,7 @@ class App extends Component {
 }
 
 var defaultSelectedGameName = "jet"
-var lang = "en"
+var defaultSelectedLanguage = "en"
   
 class Game extends React.Component {
   constructor(props) {
@@ -28,14 +28,18 @@ class Game extends React.Component {
 
     this.onTimerStart = this.onTimerStart.bind(this)
     this.onTimerStop = this.onTimerStop.bind(this)
+    this.onMenuClick = this.onMenuClick.bind(this)
     this.onFoundMatch = this.onFoundMatch.bind(this)
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
-    this.onMenuClick = this.onMenuClick.bind(this)
     this.getGameBoard = this.getGameBoard.bind(this)
     this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
-    
+    this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
+
     this.gameBoardNames = this.getGameBoardNames()
+    this.languageSettings = this.getLanguageSettings()
+    this.scoreLabels = this.getScoreLabels()
+
     this.pairCount = props.pairCount;
   
     this.state = {
@@ -47,10 +51,10 @@ class Game extends React.Component {
       elapsed: 0,
       showScore: false,
       isMenuOpen: false,
-      language: lang,
-      winner: false,
+      selectedLanguage: defaultSelectedLanguage,
       selectedGameName: defaultSelectedGameName,
-      gameBoard: this.getGameBoard(defaultSelectedGameName)
+      gameBoard: this.getGameBoard(defaultSelectedGameName),
+      winner: false
     }
   }
 
@@ -58,20 +62,28 @@ class Game extends React.Component {
   getGameBoard (gameName) {
     //alert(gameName)
     var board = Resources.gameBoards.filter(e => e.name === gameName)[0]
-    return new GameBoard(gameName,
-                         board.circles,
-                         Resources.icons)
+    return new GameBoard(gameName, board.circles, Resources.icons)
   }
 
-  getGameBoardNames () {
-    return Resources.gameBoardNames
-  }
+  /*  Datasource  */
+  getGameBoardNames = () => Resources.gameBoardNames
+
+  /*  Datasource  */
+  getLanguageSettings = () => Resources.languageSettings
+
+  /*  Datasource  */
+  getScoreLabels = () => Resources.scoreLabels
 
   /*    */
   onGameBoardSelectionChange(gameName) {
-    alert(gameName)
+    //alert(gameName)
     this.setState({ selectedGameName: gameName, gameBoard: this.getGameBoard(gameName) })
     this.resetBoard()
+  }
+
+  /*    */
+  onLanguageSelectionChange(name) {
+    this.setState({ selectedLanguage: name })
   }
 
   /*    */
@@ -131,16 +143,15 @@ class Game extends React.Component {
     setTimeout(() => this.setState({ showScore: false }), 2500)
   }
 
-  /*    */
-  //onLanguageChange = () => this.setState({ language: this.state.language === "en" ? "en" : "fr" })
+  /*  
   onLanguageChange() {
-    if (this.state.language === "en") {
-      this.setState({ language: "fr" })
+    if (this.state.selectedLanguage === "en") {
+      this.setState({ selectedLanguage: "fr" })
     }
     else {
-      this.setState({ language: "en" })
+      this.setState({ selectedLanguage: "en" })
     }
-  }
+  }  */
 
   /*    */
   onWin() {
@@ -167,8 +178,10 @@ class Game extends React.Component {
       <div>
         <div className="menu">
           <Menu state={this.state}
-                onGameBoardSelectionChange={this.onGameBoardSelectionChange} 
-                gameBoardNames={this.gameBoardNames} />
+                onGameBoardSelectionChange={this.onGameBoardSelectionChange}
+                onLanguageSelectionChange={this.onLanguageSelectionChange}
+                gameBoardNames={this.gameBoardNames}
+                languageSettings={this.languageSettings} />
         </div>
         <div>
           <div className="outer">
@@ -186,10 +199,10 @@ class Game extends React.Component {
           <div className="game-info">
             <Score state={this.state}
               icons={this.state.gameBoard.icons}
+              scoreLabels={this.scoreLabels}
               onFoundMatch={this.onFoundMatch}
               onReset={this.onReset} />
           </div>
-          <div id="lang" onClick={() => this.onLanguageChange(this)}>{this.state.language}</div>
           <div id="hamburger" className="hamburger">
             <HamburgerMenu
               isOpen={this.state.isMenuOpen}

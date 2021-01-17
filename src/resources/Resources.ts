@@ -1,18 +1,144 @@
+import GameBoardName from "../models/GameBoardName";
+import LanguageSetting from "../models/LanguageSetting";
+import ScoreLabel from "../models/ScoreLabel";
+
 export default class Resources {
 
   /*  Full list of icons to be used  */
-  static readonly icons = [
+  static readonly icons: string[] = [
     "airplane", "american-football", "aperture", "basketball", "beer", "bicycle", "bonfire", "book", "build", "bulb", "cafe", "cellular", "cog", "compass",  "construct", "cube", "female", "fitness", "flag", "flame", "flash", "flask", "football", "gift", "glasses", "globe", "hammer", "heart", "home", "hourglass", "ice-cream", "infinite", "jet", "leaf", "male", "megaphone", "mic", "moon", "musical-notes", "nuclear", "nutrition", "paw", "pin", "pizza", "photos", "planet", "pulse", "rainy", "recording", "restaurant", "ribbon", "rocket", "school", "send", "shirt", "shuffle", "snow", "speedometer", "star-outline", "sunny", "tennisball", "thermometer", "thumbs-up", "thunderstorm", "timer", "train", "transgender", "trophy", "tv", "umbrella", "unlock", "videocam", "volume-off", "walk", "wallet", "wifi", "wine", "woman"
   ];
 
+  static readonly languageSettings: LanguageSetting[] = [
+    {
+      "language": "en",
+      "name": "English"
+    },
+    {
+      "language": "fr",
+      "name": "Français"
+    }
+  ]
+
+  static readonly scoreLabels: ScoreLabel[] = [
+    {
+      "labelType": "game-title",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "REMEMBER"
+        },
+        {
+          "language": "fr",
+          "name": "MÉMOIRE"
+        }        
+      ]
+    },
+    {
+      "labelType": "total-pairs",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "TOTAL PAIRS"
+        },
+        {
+          "language": "fr",
+          "name": "TOTAL DES PAIRES"
+        }        
+      ]
+    },
+    {
+      "labelType": "found",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "FOUND"
+        },
+        {
+          "language": "fr",
+          "name": "TROUVÉ"
+        }        
+      ]
+    },
+    {
+      "labelType": "remaining",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "REMAINING"
+        },
+        {
+          "language": "fr",
+          "name": "RESTANT"
+        }        
+      ]
+    },
+    {
+      "labelType": "attempts",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "ATTEMPTS"
+        },
+        {
+          "language": "fr",
+          "name": "TENTATIVES"
+        }        
+      ]
+    },
+    {
+      "labelType": "completion",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "COMPLETION"
+        },
+        {
+          "language": "fr",
+          "name": "COMPLET"
+        }        
+      ]
+    },
+    {
+      "labelType": "accuracy",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "ACCURACY"
+        },
+        {
+          "language": "fr",
+          "name": "PRÉCISION"
+        }        
+      ]
+    },
+    {
+      "labelType": "time",
+      "displayNames": [
+        {
+          "language": "en",
+          "name": "TIME"
+        },
+        {
+          "language": "fr",
+          "name": "HEURE"
+        }        
+      ]
+    }
+  ]
+
   /*    */
-  static readonly gameBoardNames = [
+  static readonly gameBoardNames: GameBoardName[] = [
     {
       "name": "ice-cube",
       "displayNames": [
         {
-          "lang": "en",
+          "language": "en",
           "name": "Ice Cube"
+        },
+        {
+          "language": "fr",
+          "name": "Glaçon"
         }
       ],
       "include": true
@@ -21,7 +147,11 @@ export default class Resources {
       "name": "jet",
       "displayNames": [
         {
-          "lang": "en",
+          "language": "en",
+          "name": "Jet"
+        },
+        {
+          "language": "fr",
           "name": "Jet"
         }
       ],
@@ -31,8 +161,12 @@ export default class Resources {
       "name": "letter-m",
       "displayNames": [
         {
-          "lang": "en",
+          "language": "en",
           "name": "Letter M"
+        },
+        {
+          "language": "fr",
+          "name": "Lettre M"
         }
       ],
       "include": true
@@ -41,8 +175,12 @@ export default class Resources {
       "name": "numbris",
       "displayNames": [
         {
-          "lang": "en",
+          "language": "en",
           "name": "Forgotten"
+        },
+        {
+          "language": "fr",
+          "name": "Oubliée"
         }
       ],
       "include": false

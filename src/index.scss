@@ -56,9 +56,11 @@ $transitionTime: 0.12s;
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
-
-body {
+%font-family {
 	font-family: "Nunito", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+}
+body {
+	@extend %font-family;
 	margin: 0px;
 	padding: 5% 8% 0 5%;
 	z-index: 0;
@@ -397,29 +399,77 @@ body {
 				ul {
 					display: block;
 					margin: 2vw; 
-					width: 10vw; 
 					height: 100%; 
 					padding: 0; 
 					position: relative;
 					z-index: 1;
 					li {
+						display: block; 
+						width: 6vw;
+						height: 6vw; 
 						background-color: transparent;
 						transition: none;
 						list-style-type: none;
+						select {
+							font-weight: normal;
+							outline: none;
+						}
+						select:focus {
+							border: none; // do something cool here 
+						}
 					}
 				}
 			}
 			div.menu-option-panel {
+				flex: 7;
 				ul:hover {
 					height: 5vw;
 				}
-			}
-			div.menu-options {
 				ul {
 					li {
-						display: block; 
-						width: 6vw;
-						height: 6vw; 
+						select {
+							-webkit-appearance: none;
+							-moz-appearance: none;
+							appearance: none;
+							height: 3vw;
+							width: 12vw;
+							border-radius: 1.5vw;
+							@extend %font-family;
+							font-family: inherit;
+							font-size: 2vw;
+							line-height: 1vw;;
+							padding-left: 1vw;
+							color: #ffffff;
+							border:none;
+							option {
+								@extend %font-family;
+								background-color: transparent;
+							}
+						}
+						select::-ms-expand {
+							display: none;
+						}
+						select:hover {
+							cursor: pointer;
+						}
+					}
+					li:first-child {
+						select {
+							background-color: $med-blue;
+						}
+					}				
+					li:nth-child(2) {
+						//background-color: $med-grn;
+						select:first-child {
+							background-color: $med-grn;
+						}
+					}				
+				}
+			}
+			div.menu-options {
+				flex: 1;
+				ul {
+					li {
 						background-color: $dark-blue; 
 						border-radius: 50%; 
 						opacity: 0.6; 
@@ -437,21 +487,6 @@ body {
 							line-height: 6vw;
 						}
 					}
-					/*
-					li:after{
-						content: "";
-						display: block; 
-						bottom: 100%; 
-						left: 50%; 
-						height: ($offsetAmount*100%)-100; 
-						margin-left: -1px; 
-						position: absolute; 
-						width: 4px; 
-						background-color: inherit; 
-						opacity: 0; 
-						transition: opacity $transitionTime ease-out; 
-					}
-					*/
 					li:first-child:after {
 						display: none; 
 					}
@@ -508,38 +543,6 @@ body {
 			}
 		}
 	}
-}
-
-#lang {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	top: 1vw;
-	left: 1vw;
-	opacity: 0;
-	-ms-box-orient: horizontal;
-	-webkit-transition: opacity .5s ease-in-out 2s; /* Safari, Chrome and Opera > 12.1 */
-	-moz-transition: opacity .5s ease-in-out 2s; /* Firefox < 16 */
-	-ms-transition: opacity .5s ease-in-out 2s; /* Internet Explorer */
-	-o-transition: opacity .5s ease-in-out 2s; /* Opera < 12.1 */
-	transition: opacity .5s ease-in-out 2s;
-	height: 2vw;
-	width: 2vw;
-	position: absolute;
-	font-weight: 500;
-	font-size: 1.5vw;
-	text-align: center;
-	font-style: italic;
-	cursor: pointer;
-}
-#lang:hover {
-	opacity: 1.0;
-	-webkit-transition: opacity 1s ease-in-out; /* Safari, Chrome and Opera > 12.1 */
-	-moz-transition: opacity 1s ease-in-out; /* Firefox < 16 */
-	-ms-transition: opacity 1s ease-in-out; /* Internet Explorer */
-	-o-transition: opacity 1s ease-in-out; /* Opera < 12.1 */
-	transition: opacity 1s ease-in-out;
-	color: $med-blue;
 }
 @-webkit-keyframes anim1 {
 	from {-webkit-transform: rotateY(0deg);}

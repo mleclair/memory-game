@@ -1,16 +1,13 @@
-export default class GameBoardName {
-  name: string;
-  displayNames: string[][];
-  include: boolean;
+import DisplayName from "./DisplayName";
 
-  constructor(name: string, displayNames: string[][], include: boolean) {
+export default class GameBoardName {
+  public name: string;
+  public displayNames: DisplayName[];
+  public include: boolean;
+
+  constructor(name: string, displayNames: DisplayName[], include: boolean) {
     this.name = name
-    this.displayNames = displayNames
     this.include = include
-  }
-    
-  public getDisplayName(lang: string) {
-    let x = this.displayNames.find(f => f[0] === lang);
-    return x && x.length === 2 ? x[1] : "";
+    this.displayNames = displayNames
   }
 }

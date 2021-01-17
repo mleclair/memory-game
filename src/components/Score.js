@@ -12,7 +12,7 @@ export default class Score extends React.Component {
     }
   }
 
-  /*    */
+  /*  Reset score on game reset  */
   onReset() {
     this.props.onReset()
   }
@@ -47,48 +47,48 @@ export default class Score extends React.Component {
               color: this.props.state.winner ? "#62A744" : "#1B3668"
             }}
             onClick={() => this.onReset(this)}>
-            {this.props.state.language === "fr" ? "MÉMOIRE" : "REMEMBER"}
+            {this.props.state.selectedLanguage === "fr" ? "MÉMOIRE" : "REMEMBER"}
           </div>
           <div className="scoreboard" style={{ flex: 4 }}>
             <div className="scoreboard-grid">
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "TOTAL DES PAIRES" : "TOTAL PAIRS"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "TOTAL DES PAIRES" : "TOTAL PAIRS"}</span>
               </div>
               <div>
                 <span className="title">{this.props.icons.length}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "TROUVÉ" : "FOUND"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "TROUVÉ" : "FOUND"}</span>
               </div>
               <div>
                 <span className="title">{this.props.state.matchesMade}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "RESTANT" : "REMAINING"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "RESTANT" : "REMAINING"}</span>
               </div>
               <div>
                 <span className="title">{remaining}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "TENTATIVES" : "ATTEMPTS"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "TENTATIVES" : "ATTEMPTS"}</span>
               </div>
               <div>
                 <span className="title">{this.props.state.attemptCount}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "COMPLET" : "COMPLETION"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "COMPLET" : "COMPLETION"}</span>
               </div>
               <div>
                 <span className="title percent">{completion}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "PRÉCISION" : "ACCURACY"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "PRÉCISION" : "ACCURACY"}</span>
               </div>
               <div>
                 <span className="title percent">{accuracy}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.language === "fr" ? "HEURE" : "TIME"}</span>
+                <span className="title">{this.props.state.selectedLanguage === "fr" ? "HEURE" : "TIME"}</span>
               </div>
               <div>
                 <span className="title minutes">{elaspsed}</span>

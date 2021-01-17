@@ -1,4 +1,6 @@
 import React from "react";
+import GameBoardSelector from "./GameBoardSelector";
+import LanguageSelector from "./LanguageSelector";
 
 export default class Menu extends React.Component {
     constructor(props) {
@@ -7,22 +9,27 @@ export default class Menu extends React.Component {
         this.onMenuClick = this.onMenuClick.bind(this)
 
         this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+        this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
 
         this.state = {
             isMenuOpen: props.state.isMenuOpen,
             selectedGameName: props.state.selectedGameName,
             gameBoardNames: props.gameBoardNames,
-            language: props.state.language
+            languageSettings: props.languageSettings,
+            selectedLanguage: props.state.selectedLanguage
         }
     }
 
     onMenuClick = (e) => this.props.onMenuClick(e)
 
-    onGameBoardSelectionChange(event) {
-        var val = event.target.value;
-        //alert(val)
-        this.props.onGameBoardSelectionChange(val)
-        this.setState({ selectedGameName: val })
+    onGameBoardSelectionChange(value) {
+        this.props.onGameBoardSelectionChange(value)
+    }
+
+    onLanguageSelectionChange(name) {
+        this.props.onLanguageSelectionChange(name)
+        //this.setState({ selectedLanguage: name })
+        //alert(this.state.selectedLanguage)
     }
 
     render() {
@@ -39,14 +46,15 @@ export default class Menu extends React.Component {
                 <div className="menu-option-panel">
                     <ul>
                         <li>
-                            <select id="selectedGame" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>
-                                {this.props.gameBoardNames.map(function(name) {
-                                        return <option value={name.name}>{name.displayNames.map(function(displayName){
-                                            return displayName.name
-                                        })}</option>
-                                    })
-                                }
-                            </select>
+                            <GameBoardSelector state={this.state}
+                                               gameBoardNames={this.props.gameBoardNames}
+                                               onGameBoardSelectionChange={this.onGameBoardSelectionChange}
+                                               onLanguageSelectionChange={this.onLanguageSelectionChange} />
+                        </li>
+                        <li>
+                            <LanguageSelector state={this.state}
+                                              languageSettings={this.props.languageSettings}
+                                              onLanguageSelectionChange={this.onLanguageSelectionChange} />
                         </li>
                     </ul>
                 </div>
@@ -54,24 +62,3 @@ export default class Menu extends React.Component {
         );
     }
 }
-
-// var mydropDown = React.createClass({
-//     getInitialState: function() {
-//         return { value: "select" }
-//     },
-//     change: function(event) {
-//         this.setState({ selectedGameName: event.target.value })
-//     },
-//     render: function() {
-//         return (
-//             <select id="selectedGame" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>
-//                 <option value="ice-cube">Ice Cube</option>
-//                 <option value="jet">Jet</option>
-//                 <option value="letterM">Letter M</option>
-//                 <option value="numbris">Forgotten</option>
-//             </select>
-//         );
-//     }
-// })
-
-
