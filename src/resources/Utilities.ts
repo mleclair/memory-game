@@ -1,5 +1,3 @@
-import LanguageSetting from "../models/LanguageSetting"
-
 export default class Utilities {
 
   /*  Randomly shuffles an array  */
@@ -19,9 +17,5 @@ export default class Utilities {
       }
     }
     return array;
-  }
-
-  static GetLanguageSetting(self: LanguageSetting[], language: string) : LanguageSetting {
-    return self.find(v => v.language === language)
   }
 }

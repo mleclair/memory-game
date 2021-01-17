@@ -1,5 +1,4 @@
 import Utilities from "../resources/Utilities";
-//import GameBoardName from "./GameBoardName";
 
 export default class GameBoard {
   name: string;
@@ -20,12 +19,9 @@ export default class GameBoard {
     this.icons = this.getRandomIcons(icons);
     this.pairs = this.randomizedCardPairs(this.icons);
 
-    //this.getPairCount = this.getPairCount.bind(this)
     this.getRandomIcons = this.getRandomIcons.bind(this)
     this.randomizedCardPairs = this.randomizedCardPairs.bind(this)
   }
-  
-  //public getPairCount = () : number => this.circles.length / 2
     
   /*    */
   getRandomIcons(icons: string[]) {
@@ -39,6 +35,7 @@ export default class GameBoard {
     }
   }
 
+  /*    */
   randomizedCardPairs(icons: string[]) {
     let cards = Utilities.Shuffle(icons)
 

@@ -20,15 +20,18 @@ export default class Menu extends React.Component {
         }
     }
 
+      /*    */
     onMenuClick = (e) => this.props.onMenuClick(e)
 
+    /*    */
     onGameBoardSelectionChange(value) {
         this.props.onGameBoardSelectionChange(value)
     }
 
+    /*    */
     onLanguageSelectionChange(name) {
         this.props.onLanguageSelectionChange(name)
-        //this.setState({ selectedLanguage: name })
+        this.setState({ selectedLanguage: name })
         //alert(this.state.selectedLanguage)
     }
 

@@ -1,13 +1,12 @@
 import React from "react";
+import Resources from "../resources/Resources";
 
 export default class Score extends React.Component {
-  pairCount
   
   constructor(props) {
     super(props)
 
     this.onReset = this.onReset.bind(this)
-    this.pairCount = props.pairCount
 
     this.state = {
       foundCount: 0,
@@ -39,6 +38,15 @@ export default class Score extends React.Component {
     const accuracy = this.props.state.attemptCount === 0 ? 0 : Math.round((this.props.state.matchesMade * 100) / (this.props.state.attemptCount))
     const elaspsed = this.props.state.elapsed < 60000 ? 0 : Math.floor(this.props.state.elapsed / 60000)
 
+    const labelTitle = Resources.scoreLabels.find(sl => sl.labelType === "game-title").displayNames
+    const labelTotalPairs = Resources.scoreLabels.find(sl => sl.labelType === "total-pairs").displayNames
+    const labelFound = Resources.scoreLabels.find(sl => sl.labelType === "found").displayNames
+    const labelRemaining = Resources.scoreLabels.find(sl => sl.labelType === "remaining").displayNames
+    const labelAttempts = Resources.scoreLabels.find(sl => sl.labelType === "attempts").displayNames
+    const labelCompletion = Resources.scoreLabels.find(sl => sl.labelType === "completion").displayNames
+    const lableAccuracy = Resources.scoreLabels.find(sl => sl.labelType === "accuracy").displayNames
+    const labelTime = Resources.scoreLabels.find(sl => sl.labelType === "time").displayNames
+
     return (
       <div className={this.props.state.showScore ? "container show" : "container"}>
         <div style={{ position: "relative" }}>
@@ -50,48 +58,48 @@ export default class Score extends React.Component {
               color: this.props.state.winner ? "#62A744" : "#1B3668"
             }}
             onClick={() => this.onReset(this)}>
-            {this.props.state.selectedLanguage === "fr" ? "MÉMOIRE" : "REMEMBER"}
+            {labelTitle.find(dn => dn.language === this.props.state.selectedLanguage).name}
           </div>
           <div className="scoreboard" style={{ flex: 4 }}>
             <div className="scoreboard-grid">
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "TOTAL DES PAIRES" : "TOTAL PAIRS"}</span>
+                <span className="title">{labelTotalPairs.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title">{this.props.state.gameBoard.pairCount}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "TROUVÉ" : "FOUND"}</span>
+                <span className="title">{labelFound.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title">{this.props.state.matchesMade}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "RESTANT" : "REMAINING"}</span>
+                <span className="title">{labelRemaining.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title">{remaining}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "TENTATIVES" : "ATTEMPTS"}</span>
+                <span className="title">{labelAttempts.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title">{this.props.state.attemptCount}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "COMPLET" : "COMPLETION"}</span>
+                <span className="title">{labelCompletion.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title percent">{completion}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "PRÉCISION" : "ACCURACY"}</span>
+                <span className="title">{lableAccuracy.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title percent">{accuracy}</span>
               </div>
               <div>
-                <span className="title">{this.props.state.selectedLanguage === "fr" ? "HEURE" : "TIME"}</span>
+                <span className="title">{labelTime.find(dn => dn.language === this.props.state.selectedLanguage).name}</span>
               </div>
               <div>
                 <span className="title minutes">{elaspsed}</span>

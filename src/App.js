@@ -6,7 +6,6 @@ import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
 import GameBoard from "./models/GameBoard.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
-//import GameBoardName from "./models/GameBoardName.ts";
 
 class App extends Component {
 
@@ -39,8 +38,6 @@ class Game extends React.Component {
     this.gameBoardNames = this.getGameBoardNames()
     this.languageSettings = this.getLanguageSettings()
     this.scoreLabels = this.getScoreLabels()
-
-    this.pairCount = props.pairCount;
   
     this.state = {
       attemptCount: 0,

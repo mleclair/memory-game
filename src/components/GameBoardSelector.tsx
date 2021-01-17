@@ -1,25 +1,25 @@
 import React from "react";
 import GameBoardName from "../models/GameBoardName";
 
-interface Props {
+interface IProps {
   gameBoardNames: GameBoardName[],
   onGameBoardSelectionChange: (event: Object) => string,
   onLanguageSelectionChange: (name: string) => string
 }
 
-interface State {
+interface IState {
   isMenuOpen: boolean,
   selectedGameName: string,
   selectedLanguage: string
 }
 
-export default class GameBoardSelector extends React.Component<Props, State>  {
+export default class GameBoardSelector extends React.Component<IProps, IState>  {
 
   constructor(props) {
     super(props)
   
     this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
-    this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
+    //this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
 
     this.state = {
       isMenuOpen: props.state.isMenuOpen,
@@ -34,6 +34,7 @@ export default class GameBoardSelector extends React.Component<Props, State>  {
 
   gameBoardNames: GameBoardName[]
 
+  /*    */
   onGameBoardSelectionChange(event) {
     var val = event.target.value;
     //alert(val)
@@ -41,13 +42,13 @@ export default class GameBoardSelector extends React.Component<Props, State>  {
     this.setState({ selectedGameName: val })
   }
 
-  onLanguageSelectionChange(name) {
-    alert(name)
-    //alert(this.state.selectedGameName)
-  }
+  // onLanguageSelectionChange(name) {
+  //   alert(name)
+  //   //alert(this.state.selectedGameName)
+  // }
 
   render() {
-    let lang = this.state.selectedLanguage
+    const lang = this.state.selectedLanguage
 
     return (
       <select id="gameSelector" onChange={this.onGameBoardSelectionChange} value={this.state.selectedGameName}>

@@ -1,6 +1,7 @@
 import GameBoardName from "../models/GameBoardName";
 import LanguageSetting from "../models/LanguageSetting";
 import ScoreLabel from "../models/ScoreLabel";
+import DisplayName from "../models/DisplayName";
 
 export default class Resources {
 
@@ -24,14 +25,8 @@ export default class Resources {
     {
       "labelType": "game-title",
       "displayNames": [
-        {
-          "language": "en",
-          "name": "REMEMBER"
-        },
-        {
-          "language": "fr",
-          "name": "MÉMOIRE"
-        }        
+        new DisplayName("en", "REMEMBER"),
+        new DisplayName("fr", "MÉMOIRE")
       ]
     },
     {
@@ -191,7 +186,6 @@ export default class Resources {
   static readonly gameBoards = [
     {
       "name": "ice-cube",
-      "pairCount": 70,
       "circles":
         [
           ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
@@ -210,7 +204,6 @@ export default class Resources {
     },
     {
       "name": "jet",
-      "pairCount": 35,
       "circles": [
         ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "trans", "trans", "trans", "rd", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
@@ -228,7 +221,6 @@ export default class Resources {
     },
     {
       "name": "letter-m",
-      "pairCount": 68,
       "circles": [
         ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
         ["navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy"],
@@ -246,7 +238,6 @@ export default class Resources {
     },
     {
       "name": "numbris",
-      "pairCount": 70,
       "circles":
         [
           ["trans", "trans", "aqua", "grn", "trans", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
