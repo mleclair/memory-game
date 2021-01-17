@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Board from "./components/Board.js";
-import Menu from "./components/Menu.js";
+import Menu from "./components/Menu";
 import Score from "./components/Score.js";
 import Resources from "./resources/Resources.ts";
 import GameBoard from "./models/GameBoard.ts";
@@ -164,6 +164,7 @@ class Game extends React.Component {
   /*    */
   resetBoard() {
     //alert(this.state.selectedGameName)
+    //this.render()
   }
 
   /*    */
@@ -174,7 +175,9 @@ class Game extends React.Component {
     return (
       <div>
         <div className="menu">
-          <Menu state={this.state}
+          <Menu isMenuOpen={this.state.isMenuOpen}
+                selectedGameName={this.state.selectedGameName}
+                selectedLanguage={this.state.selectedLanguage}
                 onGameBoardSelectionChange={this.onGameBoardSelectionChange}
                 onLanguageSelectionChange={this.onLanguageSelectionChange}
                 gameBoardNames={this.gameBoardNames}

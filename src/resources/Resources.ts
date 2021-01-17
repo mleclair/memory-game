@@ -127,14 +127,8 @@ export default class Resources {
     {
       "name": "ice-cube",
       "displayNames": [
-        {
-          "language": "en",
-          "name": "Ice Cube"
-        },
-        {
-          "language": "fr",
-          "name": "Glaçon"
-        }
+        new DisplayName("en", "Ice Cube"),
+        new DisplayName("fr", "Glaçon")
       ],
       "include": true
     },

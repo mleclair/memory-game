@@ -86,7 +86,7 @@ export default class Board extends React.Component {
   }
 
   /*      */
-  handleClick(e, i, icon) {
+  handleCardClick(e, i, icon) {
     if (!this.state.isTimerOn) this.onTimerStart()
 
     e.target.parentElement.blur()
@@ -120,7 +120,8 @@ export default class Board extends React.Component {
 
   /*    */
   resetBoard() {
-    
+    alert('fdasdf')
+    this.render()
   }
 
   /*    */
@@ -130,7 +131,7 @@ export default class Board extends React.Component {
         value={props}
         ref={index}
         className={props.circle}
-        onClick={(e) => this.handleClick(e, index, props.icon)} />
+        onClick={(e) => this.handleCardClick(e, index, props.icon)} />
     );
   }
 

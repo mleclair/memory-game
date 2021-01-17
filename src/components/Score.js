@@ -50,13 +50,7 @@ export default class Score extends React.Component {
     return (
       <div className={this.props.state.showScore ? "container show" : "container"}>
         <div style={{ position: "relative" }}>
-          <div className="title"
-            style={{
-              flex: 1,
-              pointerEvents: this.props.state.winner ? "auto" : "none",
-              cursor: this.props.state.winner ? "pointer" : "default",
-              color: this.props.state.winner ? "#62A744" : "#1B3668"
-            }}
+          <div className={this.props.state.winner ? "title winner" : "title"}
             onClick={() => this.onReset(this)}>
             {labelTitle.find(dn => dn.language === this.props.state.selectedLanguage).name}
           </div>

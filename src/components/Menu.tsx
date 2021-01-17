@@ -1,8 +1,18 @@
 import React from "react";
 import GameBoardSelector from "./GameBoardSelector";
 import LanguageSelector from "./LanguageSelector";
+import Resources from "../resources/Resources";
 
-export default class Menu extends React.Component {
+interface IProps {
+    onMenuClick: (event: Object) => void,
+    onGameBoardSelectionChange: (name: string) => void,
+    onLanguageSelectionChange: (name: string ) => void,
+    isMenuOpen: boolean,
+    selectedGameName: string,
+    selectedLanguage: string
+}
+ 
+export default class Menu extends React.Component<IProps> {
     constructor(props) {
         super(props);
 
@@ -11,16 +21,16 @@ export default class Menu extends React.Component {
         this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
         this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
 
-        this.state = {
-            isMenuOpen: props.state.isMenuOpen,
-            selectedGameName: props.state.selectedGameName,
-            gameBoardNames: props.gameBoardNames,
-            languageSettings: props.languageSettings,
-            selectedLanguage: props.state.selectedLanguage
-        }
+        this.isMenuOpen = props.isMenuOpen
+        this.selectedLanguage = props.selectedLanguage
+        this.selectedGameName = props.selectedGameName
     }
 
-      /*    */
+    isMenuOpen: boolean
+    selectedLanguage: string
+    selectedGameName: string
+
+    /*    */
     onMenuClick = (e) => this.props.onMenuClick(e)
 
     /*    */
@@ -32,12 +42,11 @@ export default class Menu extends React.Component {
     onLanguageSelectionChange(name) {
         this.props.onLanguageSelectionChange(name)
         this.setState({ selectedLanguage: name })
-        //alert(this.state.selectedLanguage)
     }
 
     render() {
         return (
-            <div className={this.props.state.isMenuOpen ? "visible" : "hidden"}>
+            <div className={this.props.isMenuOpen ? "visible" : "hidden"}>
                 <div className="menu-options">
                     <ul>
                         <li className=""><i className="ion ion-md-settings" /></li>
@@ -49,14 +58,15 @@ export default class Menu extends React.Component {
                 <div className="menu-option-panel">
                     <ul>
                         <li>
-                            <GameBoardSelector state={this.state}
-                                               gameBoardNames={this.props.gameBoardNames}
-                                               onGameBoardSelectionChange={this.onGameBoardSelectionChange}
-                                               onLanguageSelectionChange={this.onLanguageSelectionChange} />
+                            <GameBoardSelector isMenuOpen={this.props.isMenuOpen}
+                                               selectedLanguage={this.props.selectedLanguage}
+                                               selectedGameName={this.props.selectedGameName}
+                                               gameBoardNames={Resources.gameBoardNames}
+                                               onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
                         </li>
                         <li>
-                            <LanguageSelector state={this.state}
-                                              languageSettings={this.props.languageSettings}
+                            <LanguageSelector selectedLanguage={this.props.selectedLanguage}
+                                              languageSettings={Resources.languageSettings}
                                               onLanguageSelectionChange={this.onLanguageSelectionChange} />
                         </li>
                     </ul>

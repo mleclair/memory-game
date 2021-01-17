@@ -311,6 +311,34 @@ body {
 								letter-spacing: .65vw;
 								text-align: center;
 								align-items: center;
+								flex: 1;
+								pointer-events: none;
+								cursor: default;
+								color: $dark-blue;
+							}
+							div.title.winner {
+								pointer-events: auto;
+								cursor: pointer;
+								color: $med-grn;
+								-webkit-animation: glow 1s ease-in-out infinite alternate;
+								-moz-animation: glow 1s ease-in-out infinite alternate;
+								animation: glow 1s ease-in-out infinite alternate;
+								@-webkit-keyframes glow {
+									from {
+										text-shadow: 0 0 0.25vw #ffffff, 0 0 0.5vw $med-grn, 0 0 1vw $med-grn, 0 0 1.5vw $med-grn, 0 0 2vw $med-grn, 0 0 2.5vw $med-grn
+									}
+									to {
+										text-shadow: 0 0 0.5vw #ffffff, 0 0 1vw $lt-grn, 0 0 1.5vw $lt-grn, 0 0 2vw $lt-grn, 0 0 2.5vw $lt-grn, 0 0 3vw $lt-grn, 0 0 3.25vw $lt-grn
+									}
+								}
+								@keyframes glow {
+									from {
+										text-shadow: 0 0 0.25vw #ffffff, 0 0 0.5vw $med-grn, 0 0 1vw $med-grn, 0 0 1.5vw $med-grn, 0 0 2vw $med-grn, 0 0 2.5vw $med-grn
+									}
+									to {
+										text-shadow: 0 0 0.5vw #ffffff, 0 0 1vw $lt-grn, 0 0 1.5vw $lt-grn, 0 0 2vw $lt-grn, 0 0 2.5vw $lt-grn, 0 0 3vw $lt-grn, 0 0 3.25vw $lt-grn
+									}
+								}
 							}
 							div.scoreboard {
 								background-color: $background;
