@@ -1,10 +1,13 @@
 import React from "react";
 
 export default class Score extends React.Component {
+  pairCount
+  
   constructor(props) {
     super(props)
 
     this.onReset = this.onReset.bind(this)
+    this.pairCount = props.pairCount
 
     this.state = {
       foundCount: 0,
@@ -55,7 +58,7 @@ export default class Score extends React.Component {
                 <span className="title">{this.props.state.selectedLanguage === "fr" ? "TOTAL DES PAIRES" : "TOTAL PAIRS"}</span>
               </div>
               <div>
-                <span className="title">{this.props.icons.length}</span>
+                <span className="title">{this.props.state.gameBoard.pairCount}</span>
               </div>
               <div>
                 <span className="title">{this.props.state.selectedLanguage === "fr" ? "TROUVÉ" : "FOUND"}</span>

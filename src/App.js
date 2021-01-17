@@ -186,34 +186,34 @@ class Game extends React.Component {
         <div>
           <div className="outer">
             <Board state={this.state}
-              cards={this.state.gameBoard.pairs}
-              pairCount={this.state.gameBoard.pairCount}
-              circles={this.state.gameBoard.circles}
-              onTimerStart={this.onTimerStart}
-              onFoundMatch={this.onFoundMatch}
-              onNoMatch={this.onNoMatch}
-              onWin={this.onWin}
-              resetBoard={this.resetBoard}
-              onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
+                  cards={this.state.gameBoard.pairs}
+                  pairCount={this.state.gameBoard.pairCount}
+                  circles={this.state.gameBoard.circles}
+                  onTimerStart={this.onTimerStart}
+                  onFoundMatch={this.onFoundMatch}
+                  onNoMatch={this.onNoMatch}
+                  onWin={this.onWin}
+                  resetBoard={this.resetBoard}
+                  onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
           </div>
           <div className="game-info">
             <Score state={this.state}
-              icons={this.state.gameBoard.icons}
-              scoreLabels={this.scoreLabels}
-              onFoundMatch={this.onFoundMatch}
-              onReset={this.onReset} />
+                  icons={this.state.gameBoard.icons}
+                  pairCount={this.state.gameBoard.pairCount}
+                  scoreLabels={this.scoreLabels}
+                  onFoundMatch={this.onFoundMatch}
+                  onReset={this.onReset} />
           </div>
           <div id="hamburger" className="hamburger">
-            <HamburgerMenu
-              isOpen={this.state.isMenuOpen}
-              menuClicked={this.onMenuClick}
-              width={0}
-              height={0}
-              strokeWidth={5}
-              rotate={0}
-              color="darkgray"
-              borderRadius={0}
-              animationDuration={0.5} />
+            <HamburgerMenu isOpen={this.state.isMenuOpen}
+                          menuClicked={this.onMenuClick}
+                          width={0}
+                          height={0}
+                          strokeWidth={5}
+                          rotate={0}
+                          color="darkgray"
+                          borderRadius={0}
+                          animationDuration={0.5} />
           </div>
         </div>
       </div>

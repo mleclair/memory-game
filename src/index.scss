@@ -226,7 +226,7 @@ body {
 							}
 						}
 						div.grid-container:not(.winner) {
-							div > div:not(.trans):not(.found) { cursor: pointer; }
+							div > div:not(.trans):not(.found) {cursor: pointer; }
 							div {
 								div.clicked {
 									@extend %card-hover;
@@ -237,6 +237,7 @@ body {
 								div:not(.found):not(.trans) {
 									@extend %card-hover;
 									background-color: $dark-orange;
+									opacity: 1;
 								}
 							}
 						}
