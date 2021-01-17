@@ -119,11 +119,15 @@ body {
 								flex: 1;
 								margin: 0;
 								padding: 0;
+								div {
+									pointer-events: none;
+								}
 								div:not(.trans) {
 									height:80%;
 									margin: 10%;
 									padding: 0px;
 									border-radius: 50%;
+									pointer-events: visible;
 									// animation-timing-function: ease-in-out;
 									//transition-duration: 0.4s;
 									// -webkit-transform: translateZ(0) scaleX(-1) scaleY(1);
@@ -226,7 +230,9 @@ body {
 							}
 						}
 						div.grid-container:not(.winner) {
-							div > div:not(.trans):not(.found) {cursor: pointer; }
+							div > div:not(.trans):not(.found) {
+								cursor: pointer;
+							}
 							div {
 								div.clicked {
 									@extend %card-hover;

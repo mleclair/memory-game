@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Board from "./components/Board.js";
 import Menu from "./components/Menu";
-import Score from "./components/Score.js";
+import Score from "./components/Score";
 import Resources from "./resources/Resources.ts";
 import GameBoard from "./models/GameBoard.ts";
 import HamburgerMenu from "../node_modules/react-hamburger-menu/dist/HamburgerMenu.js";
@@ -191,34 +191,42 @@ class Game extends React.Component {
         <div>
           <div className="outer">
             <Board state={this.state}
-                  cards={this.state.gameBoard.pairs}
-                  pairCount={this.state.gameBoard.pairCount}
-                  circles={this.state.gameBoard.circles}
-                  onTimerStart={this.onTimerStart}
-                  onFoundMatch={this.onFoundMatch}
-                  onNoMatch={this.onNoMatch}
-                  onWin={this.onWin}
-                  resetBoard={this.resetBoard}
-                  onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
+                   cards={this.state.gameBoard.pairs}
+                   pairCount={this.state.gameBoard.pairCount}
+                   circles={this.state.gameBoard.circles}
+                   onTimerStart={this.onTimerStart}
+                   onFoundMatch={this.onFoundMatch}
+                   onNoMatch={this.onNoMatch}
+                   onWin={this.onWin}
+                   resetBoard={this.resetBoard}
+                   onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
           </div>
           <div className="game-info">
-            <Score state={this.state}
-                  icons={this.state.gameBoard.icons}
-                  pairCount={this.state.gameBoard.pairCount}
-                  scoreLabels={this.scoreLabels}
-                  onFoundMatch={this.onFoundMatch}
-                  onReset={this.onReset} />
+            <Score show={this.state.show}
+                   showScore={this.state.showScore}
+                   winner={this.state.winner}
+                   icons={this.state.gameBoard.icons}
+                   found={this.state.found}
+                   pairCount={this.state.pairCount}
+                   foundCount={this.state.foundCount}
+                   matchesMade={this.state.matchesMade}
+                   attemptCount={this.state.attemptCount}
+                   elapsed={this.state.elapsed}
+                   selectedLanguage={this.state.selectedLanguage}
+                   selectedGameBoard={this.state.gameBoard}
+                   scoreLabels={Resources.scoreLabels}
+                   onReset={this.onReset} />
           </div>
           <div id="hamburger" className="hamburger">
             <HamburgerMenu isOpen={this.state.isMenuOpen}
-                          menuClicked={this.onHamburgerMenuClick}
-                          width={0}
-                          height={0}
-                          strokeWidth={5}
-                          rotate={0}
-                          color="darkgray"
-                          borderRadius={0}
-                          animationDuration={0.5} />
+                           menuClicked={this.onHamburgerMenuClick}
+                           width={0}
+                           height={0}
+                           strokeWidth={5}
+                           rotate={0}
+                           color="darkgray"
+                           borderRadius={0}
+                           animationDuration={0.5} />
           </div>
         </div>
       </div>
