@@ -23,7 +23,7 @@ export default class GameBoard {
     this.randomizedCardPairs = this.randomizedCardPairs.bind(this)
   }
     
-  /*    */
+  /*  Of the available icons, get the correct number for selected game  */
   getRandomIcons(icons: string[]) {
     if (icons && icons.length > 0) {
       let ic = icons
@@ -35,7 +35,7 @@ export default class GameBoard {
     }
   }
 
-  /*    */
+  /*  Shuffle the icons, pair them, then shuffle again for good measure  */
   randomizedCardPairs(icons: string[]) {
     let cards = Utilities.Shuffle(icons)
 

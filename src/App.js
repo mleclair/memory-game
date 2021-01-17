@@ -27,7 +27,7 @@ class Game extends React.Component {
 
     this.onTimerStart = this.onTimerStart.bind(this)
     this.onTimerStop = this.onTimerStop.bind(this)
-    this.onMenuClick = this.onMenuClick.bind(this)
+    this.onHamburgerMenuClick = this.onHamburgerMenuClick.bind(this)
     this.onFoundMatch = this.onFoundMatch.bind(this)
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
@@ -58,8 +58,13 @@ class Game extends React.Component {
   /*    */
   getGameBoard (gameName) {
     //alert(gameName)
-    var board = Resources.gameBoards.filter(e => e.name === gameName)[0]
-    return new GameBoard(gameName, board.circles, Resources.icons)
+    var board = Resources.gameBoards.find(e => e.name === gameName)
+    if (board) {
+      return new GameBoard(gameName, board.circles, Resources.icons)
+    }
+    else {
+      return new GameBoard(defaultSelectedGameName, Resources.gameBoards.find(e => e.name === defaultSelectedGameName), Resources.icons)
+    }
   }
 
   /*  Datasource  */
@@ -168,7 +173,7 @@ class Game extends React.Component {
   }
 
   /*    */
-  onMenuClick = (e) => this.setState({ isMenuOpen: !this.state.isMenuOpen })
+  onHamburgerMenuClick = (e) => this.setState({ isMenuOpen: !this.state.isMenuOpen })
 
   /*    */
   render() {
@@ -206,7 +211,7 @@ class Game extends React.Component {
           </div>
           <div id="hamburger" className="hamburger">
             <HamburgerMenu isOpen={this.state.isMenuOpen}
-                          menuClicked={this.onMenuClick}
+                          menuClicked={this.onHamburgerMenuClick}
                           width={0}
                           height={0}
                           strokeWidth={5}

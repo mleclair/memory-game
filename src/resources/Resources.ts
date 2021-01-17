@@ -11,14 +11,8 @@ export default class Resources {
   ];
 
   static readonly languageSettings: LanguageSetting[] = [
-    {
-      "language": "en",
-      "name": "English"
-    },
-    {
-      "language": "fr",
-      "name": "Français"
-    }
+    new LanguageSetting("en", "English"),
+    new LanguageSetting("fr", "Français")
   ]
 
   static readonly scoreLabels: ScoreLabel[] = [
@@ -204,9 +198,9 @@ export default class Resources {
         ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["drkorng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
+        ["orng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
         ["trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltskyblu", "ltskyblu", "ltskyblu", "ltgry", "ltgry", "ltgry"],
-        ["drkorng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
+        ["orng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
         ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],

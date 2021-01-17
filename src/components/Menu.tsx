@@ -4,7 +4,7 @@ import LanguageSelector from "./LanguageSelector";
 import Resources from "../resources/Resources";
 
 interface IProps {
-    onMenuClick: (event: Object) => void,
+    onHamburgerMenuClick: (event: Object) => void,
     onGameBoardSelectionChange: (name: string) => void,
     onLanguageSelectionChange: (name: string ) => void,
     isMenuOpen: boolean,
@@ -16,7 +16,7 @@ export default class Menu extends React.Component<IProps> {
     constructor(props) {
         super(props);
 
-        this.onMenuClick = this.onMenuClick.bind(this)
+        this.onHamburgerMenuClick = this.onHamburgerMenuClick.bind(this)
 
         this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
         this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
@@ -31,7 +31,7 @@ export default class Menu extends React.Component<IProps> {
     selectedGameName: string
 
     /*    */
-    onMenuClick = (e) => this.props.onMenuClick(e)
+    onHamburgerMenuClick = (e) => this.props.onHamburgerMenuClick(e)
 
     /*    */
     onGameBoardSelectionChange(value) {

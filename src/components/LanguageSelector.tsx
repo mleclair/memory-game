@@ -1,7 +1,5 @@
 import React from "react";
 import LanguageSetting from "../models/LanguageSetting"
-//import Utilities from "../resources/Utilities";
-
 
 interface Props {
     languageSettings: LanguageSetting[],
@@ -9,19 +7,11 @@ interface Props {
     selectedLanguage: string
 }
 
-// interface State {
-//     selectedLanguage: string
-// }
-
 export default class LanguageSelector extends React.Component<Props> {
     constructor(props) {
         super(props)
       
         this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
-
-        // this.state = {
-        //   selectedLanguage: props.state.selectedLanguage
-        // }
 
         this.selectedLanguage = props.selectedLanguage
         this.languageSettings = props.languageSettings

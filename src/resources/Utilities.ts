@@ -1,6 +1,6 @@
 export default class Utilities {
 
-  /*  Randomly shuffles an array  */
+  /*  Method to randomly shuffle elements of a provided array  */
   static Shuffle(array: string[]): string[] {
     if (array && array.length > 0) {
       let currentIndex = array.length, temporaryValue, randomIndex
