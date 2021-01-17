@@ -15,7 +15,7 @@ $background  : #EEEEEE;
 $drk-gry     : #414042;
 $lt-gry		 : #C0C0C0;
 
-$offsetAmount: 1.35; 
+$offsetAmount: 1.4; 
 $transitionTime: 0.12s;
 
 %display-flex {
@@ -433,7 +433,7 @@ body {
 				@extend %display-flex;
 				ul {
 					display: block;
-					margin: 2vw; 
+					margin: 4vw; 
 					height: 100%; 
 					padding: 0; 
 					position: relative;
@@ -456,7 +456,7 @@ body {
 				}
 			}
 			div.menu-option-panel {
-				flex: 7;
+				flex: 6;
 				ul:hover {
 					height: 5vw;
 				}

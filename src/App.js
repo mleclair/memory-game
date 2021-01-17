@@ -191,6 +191,7 @@ class Game extends React.Component {
         <div>
           <div className="outer">
             <Board state={this.state}
+                   gameBoard={this.state.gameBoard}
                    cards={this.state.gameBoard.pairs}
                    pairCount={this.state.gameBoard.pairCount}
                    circles={this.state.gameBoard.circles}

@@ -15,7 +15,8 @@ export default class Board extends React.Component {
       firstCardSelection: true,
       lockedDown: "grid-container game-on",
       selectedCircle: null,
-      selectCard: null
+      selectCard: null,
+      gameBoard: props.state.gameBoard
     };
   }
 
@@ -113,9 +114,8 @@ export default class Board extends React.Component {
       this.onFoundMatch(icon, i, this.state.selectedCircle, e)
       return;
     }
-    else {
-      this.onNoMatch(e);
-    }
+    
+    this.onNoMatch(e);
   }
 
   /*    */
@@ -128,10 +128,10 @@ export default class Board extends React.Component {
   renderCard(index, props) {
     return (
       <Card key={index}
-        value={props}
-        ref={index}
-        className={props.circle}
-        onClick={(e) => this.handleCardClick(e, index, props.icon)} />
+            value={props}
+            ref={index}
+            className={props.circle}
+            onClick={(e) => this.handleCardClick(e, index, props.icon)} />
     );
   }
 
