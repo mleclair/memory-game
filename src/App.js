@@ -18,7 +18,7 @@ class App extends Component {
   }
 }
 
-var defaultSelectedGameName = "jet"
+var defaultSelectedGameBoardName = "jet"
 var defaultSelectedLanguage = "en"
   
 class Game extends React.Component {
@@ -32,8 +32,11 @@ class Game extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.getGameBoard = this.getGameBoard.bind(this)
+
     this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+
     this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
+    //this.resetBoard = this.resetBoard.bind(this)
 
     this.gameBoardNames = this.getGameBoardNames()
     this.languageSettings = this.getLanguageSettings()
@@ -49,8 +52,8 @@ class Game extends React.Component {
       showScore: false,
       isMenuOpen: false,
       selectedLanguage: defaultSelectedLanguage,
-      selectedGameName: defaultSelectedGameName,
-      gameBoard: this.getGameBoard(defaultSelectedGameName),
+      selectedGameBoardName: defaultSelectedGameBoardName,
+      gameBoard: this.getGameBoard(defaultSelectedGameBoardName),
       winner: false
     }
   }
@@ -63,7 +66,7 @@ class Game extends React.Component {
       return new GameBoard(gameName, board.circles, Resources.icons)
     }
     else {
-      return new GameBoard(defaultSelectedGameName, Resources.gameBoards.find(e => e.name === defaultSelectedGameName), Resources.icons)
+      return new GameBoard(defaultSelectedGameBoardName, Resources.gameBoards.find(e => e.name === defaultSelectedGameBoardName), Resources.icons)
     }
   }
 
@@ -78,9 +81,11 @@ class Game extends React.Component {
 
   /*    */
   onGameBoardSelectionChange(gameName) {
-    //alert(gameName)
-    this.setState({ selectedGameName: gameName, gameBoard: this.getGameBoard(gameName) })
-    this.resetBoard()
+    //alert('app.onGameBoardSelectionChange    ' + gameName)
+    // let gameBoard = this.getGameBoard(gameName)
+    // this.setState({ selectedGameBoardName: gameName, gameBoard: gameBoard })
+    this.setState({ selectedGameBoardName: gameName, gameBoard: this.getGameBoard(gameName) })
+    this.resetBoard(gameName)
   }
 
   /*    */
@@ -145,16 +150,6 @@ class Game extends React.Component {
     setTimeout(() => this.setState({ showScore: false }), 2500)
   }
 
-  /*  
-  onLanguageChange() {
-    if (this.state.selectedLanguage === "en") {
-      this.setState({ selectedLanguage: "fr" })
-    }
-    else {
-      this.setState({ selectedLanguage: "en" })
-    }
-  }  */
-
   /*    */
   onWin() {
     this.stopTimer()
@@ -163,13 +158,15 @@ class Game extends React.Component {
 
   /*    */
   onReset() {
-    window.location.reload(true)
+    window.location.reload()
   }
 
   /*    */
-  resetBoard() {
-    //alert(this.state.selectedGameName)
-    //this.render()
+  resetBoard(selectedGameBoardName) {
+    //this.setState({ selectedGameBoardName: selectedGameBoardName, gameBoard: Resources.gameBoards.find(gb => gb.name === selectedGameBoardName)})
+    alert('app.resetBoard('+selectedGameBoardName+')')
+    //this.render()  
+    //this.props.resetBoard()
   }
 
   /*    */
@@ -181,18 +178,20 @@ class Game extends React.Component {
       <div>
         <div className="menu">
           <Menu isMenuOpen={this.state.isMenuOpen}
-                selectedGameName={this.state.selectedGameName}
+                selectedGameBoardName={this.state.selectedGameBoardName}
                 selectedLanguage={this.state.selectedLanguage}
                 onGameBoardSelectionChange={this.onGameBoardSelectionChange}
                 onLanguageSelectionChange={this.onLanguageSelectionChange}
+                resetBoard={this.resetBoard}
                 gameBoardNames={this.gameBoardNames}
                 languageSettings={this.languageSettings} />
         </div>
         <div>
           <div className="outer">
             <Board state={this.state}
+                   selectedGameBoardName={this.state.selectedGameBoardName}
                    gameBoard={this.state.gameBoard}
-                   cards={this.state.gameBoard.pairs}
+                   pairs={this.state.gameBoard.pairs}
                    pairCount={this.state.gameBoard.pairCount}
                    circles={this.state.gameBoard.circles}
                    onTimerStart={this.onTimerStart}
@@ -218,7 +217,7 @@ class Game extends React.Component {
                    scoreLabels={Resources.scoreLabels}
                    onReset={this.onReset} />
           </div>
-          <div id="hamburger" className="hamburger">
+          <div className="hamburger">
             <HamburgerMenu isOpen={this.state.isMenuOpen}
                            menuClicked={this.onHamburgerMenuClick}
                            width={0}

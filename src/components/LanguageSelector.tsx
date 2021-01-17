@@ -28,12 +28,21 @@ export default class LanguageSelector extends React.Component<Props> {
         this.setState({ selectedLanguage: val })
     }
 
+    /*  Renders the select options from datasource  */
+    renderOptions(): React.Component[] {
+        let arr = []
+        let i = 0
+        for (let languageSetting of this.languageSettings)
+        {
+            arr.push(<option key={i++} value={languageSetting.language}>{languageSetting.name}</option>)
+        }
+        return arr
+    }
+
     render() {
         return (
             <select id="gameSelector" onChange={this.onLanguageSelectionChange} value={this.props.selectedLanguage}>
-                {this.languageSettings.map(function(languageSetting: LanguageSetting) {
-                    return <option value={languageSetting.language}>{languageSetting.name}</option>
-                })}
+                {this.renderOptions()}
             </select>
         )
     }

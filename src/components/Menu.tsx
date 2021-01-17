@@ -7,8 +7,9 @@ interface IProps {
     onHamburgerMenuClick: (event: Object) => void,
     onGameBoardSelectionChange: (name: string) => void,
     onLanguageSelectionChange: (name: string ) => void,
+    resetBoard: (selectedGameBoardName: string) => void,
     isMenuOpen: boolean,
-    selectedGameName: string,
+    selectedGameBoardName: string,
     selectedLanguage: string
 }
  
@@ -20,28 +21,36 @@ export default class Menu extends React.Component<IProps> {
 
         this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
         this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
+        this.resetBoard = this.resetBoard.bind(this)
 
         this.isMenuOpen = props.isMenuOpen
         this.selectedLanguage = props.selectedLanguage
-        this.selectedGameName = props.selectedGameName
+        this.selectedGameBoardName = props.selectedGameBoardName
     }
 
     isMenuOpen: boolean
     selectedLanguage: string
-    selectedGameName: string
+    selectedGameBoardName: string
 
     /*    */
     onHamburgerMenuClick = (e) => this.props.onHamburgerMenuClick(e)
 
     /*    */
-    onGameBoardSelectionChange(value) {
-        this.props.onGameBoardSelectionChange(value)
+    onGameBoardSelectionChange(name: string) {
+        this.props.onGameBoardSelectionChange(name)
+        //this.props.resetBoard()
+        //alert(name)
     }
 
     /*    */
     onLanguageSelectionChange(name) {
         this.props.onLanguageSelectionChange(name)
         this.setState({ selectedLanguage: name })
+    }
+
+    /*      */
+    resetBoard() {
+        this.props.resetBoard(this.selectedGameBoardName)
     }
 
     render() {
@@ -60,7 +69,7 @@ export default class Menu extends React.Component<IProps> {
                         <li>
                             <GameBoardSelector isMenuOpen={this.props.isMenuOpen}
                                                selectedLanguage={this.props.selectedLanguage}
-                                               selectedGameName={this.props.selectedGameName}
+                                               selectedGameBoardName={this.props.selectedGameBoardName}
                                                gameBoardNames={Resources.gameBoardNames}
                                                onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
                         </li>

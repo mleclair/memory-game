@@ -4,11 +4,10 @@ import Resources from "../resources/Resources";
 
 interface IProps {
   gameBoardNames: GameBoardName[],
-  onGameBoardSelectionChange: (event: Object) => void,
-  //onLanguageSelectionChange: (name: string) => void,
+  onGameBoardSelectionChange: (name: string) => void,
   isMenuOpen: boolean,
   selectedLanguage: string,
-  selectedGameName: string
+  selectedGameBoardName: string
 }
 
 export default class GameBoardSelector extends React.Component<IProps>  {
@@ -17,10 +16,9 @@ export default class GameBoardSelector extends React.Component<IProps>  {
     super(props)
   
     this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
-    //this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
 
     this.selectedLanguage = props.selectedLanguage
-    this.selectedGameName = props.selectedGameName
+    this.selectedGameBoardName = props.selectedGameBoardName
     this.gameBoardNames = []
 
     props.gameBoardNames.forEach(gameBoardName => this.gameBoardNames.push(new GameBoardName(gameBoardName.name, gameBoardName.displayNames, gameBoardName.include)))
@@ -28,34 +26,29 @@ export default class GameBoardSelector extends React.Component<IProps>  {
 
   gameBoardNames: GameBoardName[]
   selectedLanguage: string
-  selectedGameName: string
+  selectedGameBoardName: string
 
-  /*    */
+  /*  Fires whenever the selected option changes  */
   onGameBoardSelectionChange(event) {
-    var val = event.target.value;
-    this.props.onGameBoardSelectionChange(val)
-    this.setState({ selectedGameName: val })
+    var name = event.target.value;
+    this.setState({ selectedGameBoardName: name })
+    this.props.onGameBoardSelectionChange(name)
   }
 
-  /*  
-  onLanguageSelectionChange(name: string) {
-    this.render()
-    alert('fdasdf')
-    return name
-  }  */
-
+  /*  Renders the select options from datasource  */
   renderOptions(): React.Component[] {
-    let arr = [];
+    let arr = []
+    let i = 0
     for (let gameBoardName of Resources.gameBoardNames)
     {
-      arr.push(<option value={gameBoardName.name}>{gameBoardName.displayNames.find(f => f.language === this.props.selectedLanguage).name}</option>)
+      arr.push(<option key={i++} value={gameBoardName.name}>{gameBoardName.displayNames.find(f => f.language === this.props.selectedLanguage).name}</option>)
     }
     return arr
   }
 
   render() {
     return (
-      <select id="gameSelector" onChange={this.onGameBoardSelectionChange} value={this.props.selectedGameName}>
+      <select id="gameSelector" onChange={this.onGameBoardSelectionChange} value={this.props.selectedGameBoardName}>
         {this.renderOptions()}
       </select>
     )

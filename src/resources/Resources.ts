@@ -193,7 +193,6 @@ export default class Resources {
     {
       "name": "jet",
       "circles": [
-        ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "trans", "trans", "trans", "rd", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
@@ -204,7 +203,8 @@ export default class Resources {
         ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
         ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "trans", "trans", "trans", "grn", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"]
+        ["trans", "trans", "trans", "trans", "trans", "grn", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+        ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"]
       ]
     },
     {

@@ -1,4 +1,5 @@
 import React from "react";
+import Resources from "../resources/Resources";
 import Card from "./Card.js";
 
 export default class Board extends React.Component {
@@ -10,14 +11,23 @@ export default class Board extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.resetBoard = this.resetBoard.bind(this)
+    this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
 
     this.state = {
       firstCardSelection: true,
       lockedDown: "grid-container game-on",
       selectedCircle: null,
       selectCard: null,
+      selectedGameBoardName: props.state.selectedGameBoardName,
       gameBoard: props.state.gameBoard
     };
+  }
+
+  /*    */
+  onGameBoardSelectionChange(name) {
+    this.setState({gameBoard: Resources.gameBoards.find(gb => gb.name === name)})
+    alert('Board.onGameBoardSelectionChange('+name+')')
+    this.resetBoard(name)
   }
 
   /*      */
@@ -74,7 +84,7 @@ export default class Board extends React.Component {
     this.refs[index].setState({ className: this.refs[index].props.className.replace("clicked", "") })
   }
 
-  /*   Remove lockdown styling.  Need to blur after state change.   */
+  /*  Remove lockdown styling.  Need to blur after state change.  */
   resetBoardSelection(e) {
     this.setState({
       firstCardSelection: true,
@@ -86,8 +96,10 @@ export default class Board extends React.Component {
     e.target.parentElement.blur()
   }
 
-  /*      */
+  /*    */
   handleCardClick(e, i, icon) {
+    //alert(this.state.selectedGameBoardName)
+
     if (!this.state.isTimerOn) this.onTimerStart()
 
     e.target.parentElement.blur()
@@ -119,9 +131,10 @@ export default class Board extends React.Component {
   }
 
   /*    */
-  resetBoard() {
-    alert('fdasdf')
-    this.render()
+  resetBoard(selectedGameBoardName) {
+    //alert(this.state.gameBoard.name)
+    //this.props.resetBoard(selectedGameBoardName)
+    alert('123')
   }
 
   /*    */
@@ -130,7 +143,7 @@ export default class Board extends React.Component {
       <Card key={index}
             value={props}
             ref={index}
-            className={props.circle}
+            className={this.state.gameBoard.circles[index]}
             onClick={(e) => this.handleCardClick(e, index, props.icon)} />
     );
   }
@@ -141,17 +154,17 @@ export default class Board extends React.Component {
     let arr = [];
 
     // Add an icon for each non-transparent dot 
-    for (let i = 0; i < this.props.circles.length; i++) {
+    for (let i = 0; i < this.state.gameBoard.circles.length; i++) {
       let props = {
         id: i,
-        circle: this.props.circles[i],
-        icon: this.props.cards[counter],
+        circle: this.state.gameBoard.circles[i],
+        icon: this.state.gameBoard.pairs[counter],
         iconUniqueId: "i" + counter
       }
 
       arr.push(this.renderCard(i, props))
 
-      if (this.props.circles[i] !== "trans") counter++;
+      if (this.state.gameBoard.circles[i] !== "trans") counter++;
     }
     return arr;
   }

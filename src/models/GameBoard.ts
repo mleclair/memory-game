@@ -3,7 +3,7 @@ import Utilities from "../resources/Utilities";
 export default class GameBoard {
   name: string;
   circles: string[];
-  public pairs: string[];
+  pairs: string[];
   icons: string[];
   pairCount: number;
 
