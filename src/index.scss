@@ -363,11 +363,13 @@ body {
 											color: $dark-blue;
 											font-weight: 500;
 											font-style: normal;
+											text-transform: uppercase;
 										}
 										span.title.percent::after {
 											content: " %";
 										}
 										span.title.minutes::after {
+											text-transform: none;
 											content: " min";
 										}
 									}

@@ -2,7 +2,7 @@ import GameBoardName from "../models/GameBoardName";
 import LanguageSetting from "../models/LanguageSetting";
 import ScoreLabel from "../models/ScoreLabel";
 import DisplayName from "../models/DisplayName";
-import GameBoardCards from "../models/GameBoardCards"
+import GameBoardCard from "../models/GameBoardCard"
 
 export default class Resources {
 
@@ -17,170 +17,42 @@ export default class Resources {
   ]
 
   static readonly scoreLabels: ScoreLabel[] = [
-    new ScoreLabel("game-title",[
-      new DisplayName("en", "Remember"),
-      new DisplayName("fr", "Mémoire")
-    ]),
-    {
-      "labelType": "total-pairs",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "TOTAL PAIRS"
-        },
-        {
-          "language": "fr",
-          "name": "TOTAL DES PAIRES"
-        }        
-      ]
-    },
-    {
-      "labelType": "found",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "FOUND"
-        },
-        {
-          "language": "fr",
-          "name": "TROUVÉ"
-        }        
-      ]
-    },
-    {
-      "labelType": "remaining",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "REMAINING"
-        },
-        {
-          "language": "fr",
-          "name": "RESTANT"
-        }        
-      ]
-    },
-    {
-      "labelType": "attempts",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "ATTEMPTS"
-        },
-        {
-          "language": "fr",
-          "name": "TENTATIVES"
-        }        
-      ]
-    },
-    {
-      "labelType": "completion",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "COMPLETION"
-        },
-        {
-          "language": "fr",
-          "name": "COMPLET"
-        }        
-      ]
-    },
-    {
-      "labelType": "accuracy",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "ACCURACY"
-        },
-        {
-          "language": "fr",
-          "name": "PRÉCISION"
-        }        
-      ]
-    },
-    {
-      "labelType": "time",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "TIME"
-        },
-        {
-          "language": "fr",
-          "name": "HEURE"
-        }        
-      ]
-    }
+    new ScoreLabel("game-title", [ new DisplayName("en", "Remember"), new DisplayName("fr", "Mémoire") ]),
+    new ScoreLabel("total-pairs", [ new DisplayName("en", "Total Pairs"), new DisplayName("fr", "Total des paires") ]),
+    new ScoreLabel("found", [ new DisplayName("en", "Found") , new DisplayName("fr", "Trouvé") ]),
+    new ScoreLabel("remaining", [ new DisplayName("en", "Remaining") , new DisplayName("fr", "Restant") ]),
+    new ScoreLabel("attempts", [ new DisplayName("en", "Attempts") , new DisplayName("fr", "Tentatives") ]),
+    new ScoreLabel("completion", [ new DisplayName("en", "Completion") , new DisplayName("fr", "Complet") ]),
+    new ScoreLabel("accuracy", [ new DisplayName("en", "Accuracy") , new DisplayName("fr", "Précision") ]),
+    new ScoreLabel("time", [ new DisplayName("en", "Time") , new DisplayName("fr", "Heure") ])
   ]
 
   /*    */
   static readonly gameBoardNames: GameBoardName[] = [
     new GameBoardName("ice-cube", [ new DisplayName("en", "Ice Cube"), new DisplayName("fr", "Glaçon")], true),
-    {
-      "name": "jet",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "Jet"
-        },
-        {
-          "language": "fr",
-          "name": "Jet"
-        }
-      ],
-      "include": true
-    },
-    {
-      "name": "letter-m",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "Letter M"
-        },
-        {
-          "language": "fr",
-          "name": "Lettre M"
-        }
-      ],
-      "include": true
-    },
-    {
-      "name": "numbris",
-      "displayNames": [
-        {
-          "language": "en",
-          "name": "Forgotten"
-        },
-        {
-          "language": "fr",
-          "name": "Oubliée"
-        }
-      ],
-      "include": false
-    }
+    new GameBoardName("jet", [ new DisplayName("en", "Jet"), new DisplayName("fr", "Jet")], true),
+    new GameBoardName("letter-m", [ new DisplayName("en", "Letter M"), new DisplayName("fr", "Lettre M")], true),
+    new GameBoardName("numbirs", [ new DisplayName("en", "Forgotten"), new DisplayName("fr", "Oubliée")], false)
+
   ]
 
   /*    */
-  static readonly gameBoardCards: GameBoardCards[] = [
-    {
-      "name": "ice-cube",
-      "circles":
-        [
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans", "skyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "skyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
-          ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "skyblu", "skyblu", "ltskyblu", "trans", "trans"]
-        ]
-    },
+  static readonly gameBoardCards: GameBoardCard[] = [
+    new GameBoardCard("ice-cube",
+    [
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans", "skyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "skyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
+      ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "skyblu", "skyblu", "ltskyblu", "trans", "trans"]
+    ]),
     {
       "name": "jet",
       "circles": [
