@@ -5,9 +5,8 @@ import Resources from "../resources/Resources";
 
 interface IProps {
     onHamburgerMenuClick: (event: Object) => void,
-    onGameBoardSelectionChange: (name: string) => void,
+    onGameBoardNameSelectionChange: (name: string) => void,
     onLanguageSelectionChange: (name: string ) => void,
-    resetBoard: (selectedGameBoardName: string) => void,
     isMenuOpen: boolean,
     selectedGameBoardName: string,
     selectedLanguage: string
@@ -18,39 +17,32 @@ export default class Menu extends React.Component<IProps> {
         super(props);
 
         this.onHamburgerMenuClick = this.onHamburgerMenuClick.bind(this)
-
-        this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+        this.onGameBoardNameSelectionChange = this.onGameBoardNameSelectionChange.bind(this)
         this.onLanguageSelectionChange = this.onLanguageSelectionChange.bind(this)
-        this.resetBoard = this.resetBoard.bind(this)
 
         this.isMenuOpen = props.isMenuOpen
         this.selectedLanguage = props.selectedLanguage
-        this.selectedGameBoardName = props.selectedGameBoardName
+        //this.selectedGameBoardName = props.selectedGameBoardName
     }
 
     isMenuOpen: boolean
     selectedLanguage: string
-    selectedGameBoardName: string
+    //selectedGameBoardName: string
 
     /*    */
     onHamburgerMenuClick = (e) => this.props.onHamburgerMenuClick(e)
 
     /*    */
-    onGameBoardSelectionChange(name: string) {
-        this.props.onGameBoardSelectionChange(name)
+    onGameBoardNameSelectionChange(name: string) {
+        this.props.onGameBoardNameSelectionChange(name)
         //this.props.resetBoard()
         //alert(name)
     }
 
     /*    */
     onLanguageSelectionChange(name) {
-        this.props.onLanguageSelectionChange(name)
         this.setState({ selectedLanguage: name })
-    }
-
-    /*      */
-    resetBoard() {
-        this.props.resetBoard(this.selectedGameBoardName)
+        this.props.onLanguageSelectionChange(name)
     }
 
     render() {
@@ -71,7 +63,7 @@ export default class Menu extends React.Component<IProps> {
                                                selectedLanguage={this.props.selectedLanguage}
                                                selectedGameBoardName={this.props.selectedGameBoardName}
                                                gameBoardNames={Resources.gameBoardNames}
-                                               onGameBoardSelectionChange={this.onGameBoardSelectionChange} />
+                                               onGameBoardNameSelectionChange={this.onGameBoardNameSelectionChange} />
                         </li>
                         <li>
                             <LanguageSelector selectedLanguage={this.props.selectedLanguage}

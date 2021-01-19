@@ -4,7 +4,7 @@ import Resources from "../resources/Resources";
 
 interface IProps {
   gameBoardNames: GameBoardName[],
-  onGameBoardSelectionChange: (name: string) => void,
+  onGameBoardNameSelectionChange: (name: string) => void,
   isMenuOpen: boolean,
   selectedLanguage: string,
   selectedGameBoardName: string
@@ -15,7 +15,7 @@ export default class GameBoardSelector extends React.Component<IProps>  {
   constructor(props) {
     super(props)
   
-    this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+    this.onGameBoardNameSelectionChange = this.onGameBoardNameSelectionChange.bind(this)
 
     this.selectedLanguage = props.selectedLanguage
     this.selectedGameBoardName = props.selectedGameBoardName
@@ -29,10 +29,10 @@ export default class GameBoardSelector extends React.Component<IProps>  {
   selectedGameBoardName: string
 
   /*  Fires whenever the selected option changes  */
-  onGameBoardSelectionChange(event) {
+  onGameBoardNameSelectionChange(event) {
     var name = event.target.value;
     this.setState({ selectedGameBoardName: name })
-    this.props.onGameBoardSelectionChange(name)
+    this.props.onGameBoardNameSelectionChange(name)
   }
 
   /*  Renders the select options from datasource  */
@@ -41,14 +41,16 @@ export default class GameBoardSelector extends React.Component<IProps>  {
     let i = 0
     for (let gameBoardName of Resources.gameBoardNames)
     {
-      arr.push(<option key={i++} value={gameBoardName.name}>{gameBoardName.displayNames.find(f => f.language === this.props.selectedLanguage).name}</option>)
+      arr.push(<option key={i++} value={gameBoardName.name}>
+                 {gameBoardName.displayNames.find(f => f.language === this.props.selectedLanguage).name}
+               </option>)
     }
     return arr
   }
 
   render() {
     return (
-      <select id="gameSelector" onChange={this.onGameBoardSelectionChange} value={this.props.selectedGameBoardName}>
+      <select id="gameSelector" onChange={this.onGameBoardNameSelectionChange} value={this.props.selectedGameBoardName}>
         {this.renderOptions()}
       </select>
     )

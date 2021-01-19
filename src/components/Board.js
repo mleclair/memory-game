@@ -1,5 +1,5 @@
 import React from "react";
-import Resources from "../resources/Resources";
+//import Resources from "../resources/Resources";
 import Card from "./Card.js";
 
 export default class Board extends React.Component {
@@ -11,24 +11,35 @@ export default class Board extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.resetBoard = this.resetBoard.bind(this)
-    this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+    //this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
+    this.onChangeGameBoard = this.onChangeGameBoard.bind(this)
 
     this.state = {
       firstCardSelection: true,
       lockedDown: "grid-container game-on",
       selectedCircle: null,
       selectCard: null,
-      selectedGameBoardName: props.state.selectedGameBoardName,
-      gameBoard: props.state.gameBoard
+      selectedGameBoardName: props.selectedGameBoardName,
+      gameBoard: props.gameBoard
     };
+    //this.gameBoard = props.gameBoard
   }
 
   /*    */
-  onGameBoardSelectionChange(name) {
-    this.setState({gameBoard: Resources.gameBoards.find(gb => gb.name === name)})
-    alert('Board.onGameBoardSelectionChange('+name+')')
-    this.resetBoard(name)
+  onChangeGameBoard(gameNamge) {
+    this.render()
+    alert(gameNamge)
   }
+
+  //gameBoard
+
+  /*  
+  onGameBoardSelectionChange(name) {
+    //this.setState({gameBoard: Resources.gameBoards.find(gb => gb.name === name)})
+    //alert('Board.onGameBoardSelectionChange('+name+')')
+    this.props.resetBoard(name)
+    this.resetBoard(name)
+  }  */
 
   /*      */
   onTimerStart() {
@@ -51,18 +62,12 @@ export default class Board extends React.Component {
     this.refs[i1].setState({ className: "found" })
     this.refs[i2].setState({ className: "found" })
 
-    if (this.props.state.matchesMade === this.props.pairCount - 1) {
-      // We have a wienner!!
-      this.onWin()
-    }
-    else {
-      this.resetBoardSelection(e)
-    }
+    this.props.matchesMade === this.props.pairCount - 1 ? this.onWin() : this.resetBoardSelection(e)
   }
 
   /*      */
   onWin() {
-    // Reset classnames to original
+    // Reset classNames to original
     let i = 0;
     for (var ref in this.refs) {
       this.refs[ref].setState({ className: this.props.circles[i++] })

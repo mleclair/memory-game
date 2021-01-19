@@ -2,6 +2,7 @@ import GameBoardName from "../models/GameBoardName";
 import LanguageSetting from "../models/LanguageSetting";
 import ScoreLabel from "../models/ScoreLabel";
 import DisplayName from "../models/DisplayName";
+import GameBoardCards from "../models/GameBoardCards"
 
 export default class Resources {
 
@@ -16,13 +17,10 @@ export default class Resources {
   ]
 
   static readonly scoreLabels: ScoreLabel[] = [
-    {
-      "labelType": "game-title",
-      "displayNames": [
-        new DisplayName("en", "REMEMBER"),
-        new DisplayName("fr", "MÉMOIRE")
-      ]
-    },
+    new ScoreLabel("game-title",[
+      new DisplayName("en", "Remember"),
+      new DisplayName("fr", "Mémoire")
+    ]),
     {
       "labelType": "total-pairs",
       "displayNames": [
@@ -118,14 +116,7 @@ export default class Resources {
 
   /*    */
   static readonly gameBoardNames: GameBoardName[] = [
-    {
-      "name": "ice-cube",
-      "displayNames": [
-        new DisplayName("en", "Ice Cube"),
-        new DisplayName("fr", "Glaçon")
-      ],
-      "include": true
-    },
+    new GameBoardName("ice-cube", [ new DisplayName("en", "Ice Cube"), new DisplayName("fr", "Glaçon")], true),
     {
       "name": "jet",
       "displayNames": [
@@ -171,7 +162,7 @@ export default class Resources {
   ]
 
   /*    */
-  static readonly gameBoards = [
+  static readonly gameBoardCards: GameBoardCards[] = [
     {
       "name": "ice-cube",
       "circles":

@@ -10,10 +10,13 @@ export default class GameBoard {
   constructor(name: string, circles: string[][], icons: string[]) {
     this.name = name
     this.circles = [];
-    if (circles !== null && circles !== undefined) {
+    if (circles && circles.length > 0) {
       var x = circles.reduce((accumulator, value) => accumulator.concat(value), []);
 
       if (x !== null && x !== undefined) this.circles = x;
+    }
+    else {
+      this.circles = []
     }
     this.pairCount = this.circles.filter(p => p !== "trans").length / 2
     this.icons = this.getRandomIcons(icons);
