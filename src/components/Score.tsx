@@ -1,5 +1,4 @@
 import React from "react";
-import GameBoard from "../models/GameBoard";
 import ScoreLabel from "../models/ScoreLabel";
 import Resources from "../resources/Resources";
 
@@ -15,28 +14,18 @@ interface IProps {
   attemptCount: number,
   elapsed: number,
   selectedLanguage: string,
-  selectedGameBoard: GameBoard,
   scoreLabels: ScoreLabel[],
   onReset: () => void,
-  //onLanguageSelectionChange: (name: string) => void,
 }
 export default class Score extends React.Component<IProps> {
   
   constructor(props) {
     super(props)
-
     this.onReset = this.onReset.bind(this)
-
-    // this.state = {
-    //   foundCount: 0,
-    //   show: false
-    // }
   }
 
   /*  Reset score on game reset  */
-  onReset() {
-    this.props.onReset()
-  }
+  onReset = () => this.props.onReset()
 
   /*  Renders a bin of distinct icons, hidden, to be revealed when a match on the board is made  */
   renderHiddenIcons(): React.Component[] {
@@ -55,7 +44,7 @@ export default class Score extends React.Component<IProps> {
     const remaining = this.props.icons.length - this.props.matchesMade
     const completion = Math.round(100.0 * ((this.props.icons === undefined) ? 0 : (this.props.matchesMade / this.props.icons.length)))
     const accuracy = this.props.attemptCount === 0 ? 0 : Math.round((this.props.matchesMade * 100) / (this.props.attemptCount))
-    const elaspsed = this.props.elapsed < 60000 ? 0 : Math.floor(this.props.elapsed / 60000)
+    const elaspsed = (this.props.elapsed < 60000) ? 0 : Math.floor(this.props.elapsed / 60000)
 
     const labelTitle = Resources.scoreLabels.find(sl => sl.labelType === "game-title").displayNames
     const labelTotalPairs = Resources.scoreLabels.find(sl => sl.labelType === "total-pairs").displayNames
@@ -78,7 +67,7 @@ export default class Score extends React.Component<IProps> {
                 <span className="title">{labelTotalPairs.find(dn => dn.language === this.props.selectedLanguage).name}</span>
               </div>
               <div>
-                <span className="title">{this.props.selectedGameBoard.pairCount}</span>
+                <span className="title">{this.props.pairCount}</span>
               </div>
               <div>
                 <span className="title">{labelFound.find(dn => dn.language === this.props.selectedLanguage).name}</span>

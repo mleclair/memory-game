@@ -29,17 +29,17 @@ export default class Resources {
 
   /*    */
   static readonly gameBoardNames: GameBoardName[] = [
-    new GameBoardName("ice-cube", [ new DisplayName("en", "Ice Cube"), new DisplayName("fr", "Glaçon")], true),
-    new GameBoardName("jet", [ new DisplayName("en", "Jet"), new DisplayName("fr", "Jet")], true),
-    new GameBoardName("letter-m", [ new DisplayName("en", "Letter M"), new DisplayName("fr", "Lettre M")], true),
-    new GameBoardName("numbirs", [ new DisplayName("en", "Forgotten"), new DisplayName("fr", "Oubliée")], false)
-
+    new GameBoardName("ice-cube", [ new DisplayName("en", "Ice Cube"), new DisplayName("fr", "Glaçon") ], true),
+    new GameBoardName("jet", [ new DisplayName("en", "Jet"), new DisplayName("fr", "Jet") ], true),
+    new GameBoardName("letter-m", [ new DisplayName("en", "Letter M"), new DisplayName("fr", "Lettre M") ], true),
+    new GameBoardName("numbris", [ new DisplayName("en", "Forgotten"), new DisplayName("fr", "Oubliée") ], false),
+    new GameBoardName("venn", [ new DisplayName("en", "Venn"), new DisplayName("fr", "Venn") ], true),
+    new GameBoardName("penguin", [ new DisplayName("en", "Penguin"), new DisplayName("fr", "Manchot") ], true)
   ]
 
   /*    */
   static readonly gameBoardCards: GameBoardCard[] = [
-    new GameBoardCard("ice-cube",
-    [
+    new GameBoardCard("ice-cube", [
       ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
       ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
       ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "trans", "trans"],
@@ -53,57 +53,75 @@ export default class Resources {
       ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "trans", "trans"],
       ["trans", "trans", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "ltskyblu", "skyblu", "skyblu", "skyblu", "ltskyblu", "trans", "trans"]
     ]),
-    {
-      "name": "jet",
-      "circles": [
-        ["trans", "trans", "trans", "trans", "trans", "rd", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["orng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
-        ["trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltskyblu", "ltskyblu", "ltskyblu", "ltgry", "ltgry", "ltgry"],
-        ["orng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
-        ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "trans", "trans", "trans", "grn", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
-        ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"]
-      ]
-    },
-    {
-      "name": "letter-m",
-      "circles": [
-        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "trans", "navy", "navy", "navy", "navy", "navy", "navy", "trans", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "navy", "navy", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
-        ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"]
-      ]
-    },
-    {
-      "name": "numbris",
-      "circles":
-        [
-          ["trans", "trans", "aqua", "grn", "trans", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
-          ["trans", "trans", "trans", "ltgrn", "ltblu", "navy", "ltblu", "navy", "navy", "trans", "trans", "trans", "navy", "grn", "navy", "navy"],
-          ["ltgrn", "trans", "grn", "trans", "grn", "navy", "navy", "ltblu", "navy", "grn", "trans", "trans", "navy", "navy", "navy", "navy"],
-          ["trans", "trans", "trans", "ltblu", "navy", "grn", "navy", "navy", "ltblu", "navy", "navy", "trans", "ltblu", "navy", "navy", "navy"],
-          ["trans", "trans", "grn", "ltblu", "ltblu", "navy", "ltgrn", "navy", "navy", "navy", "navy", "navy", "navy", "ltgrn", "navy", "navy"],
-          ["ltgrn", "trans", "trans", "grn", "navy", "ltblu", "navy", "ltblu", "ltblu", "navy", "navy", "navy", "navy", "navy", "grn", "navy"],
-          ["trans", "ltgrn", "ltblu", "trans", "navy", "ltgrn", "ltblu", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
-          ["trans", "trans", "trans", "trans", "ltblu", "ltblu", "navy", "grn", "navy", "navy", "navy", "ltblu", "navy", "ltblu", "navy", "navy"],
-          ["ltblu", "trans", "grn", "trans", "grn", "navy", "navy", "navy", "trans", "navy", "ltgrn", "navy", "navy", "navy", "grn", "navy"],
-          ["trans", "trans", "ltgrn", "ltblu", "trans", "navy", "navy", "ltblu", "trans", "trans", "navy", "ltblu", "navy", "ltblu", "navy", "navy"],
-          ["trans", "trans", "trans", "trans", "grn", "navy", "ltblu", "navy", "trans", "trans", "trans", "navy", "ltblu", "navy", "navy", "navy"],
-          ["trans", "ltgrn", "ltblu", "trans", "navy", "navy", "navy", "ltgrn", "trans", "trans", "trans", "trans", "navy", "navy", "ltblu", "navy"]
-        ]
-    }
+    new GameBoardCard("jet", [
+      ["trans", "trans", "trans", "trans", "trans", "rd", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["orng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
+      ["trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltskyblu", "ltskyblu", "ltskyblu", "ltgry", "ltgry", "ltgry"],
+      ["orng", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans"],
+      ["trans", "trans", "ltgry", "ltgry", "trans", "trans", "ltgry", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "ltgry", "trans", "trans", "trans", "ltgry", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "trans", "ltgry", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "grn", "ltgry", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"]
+    ]),
+    new GameBoardCard("letter-m", [
+      ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "trans", "navy", "navy", "navy", "navy", "navy", "navy", "trans", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "navy", "navy", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["navy", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"]
+    ]),
+    new GameBoardCard("numbris", [
+      ["trans", "trans", "aqua", "grn", "trans", "navy", "navy", "navy", "trans", "trans", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["trans", "trans", "trans", "ltgrn", "ltblu", "navy", "ltblu", "navy", "navy", "trans", "trans", "trans", "navy", "grn", "navy", "navy"],
+      ["ltgrn", "trans", "grn", "trans", "grn", "navy", "navy", "ltblu", "navy", "grn", "trans", "trans", "navy", "navy", "navy", "navy"],
+      ["trans", "trans", "trans", "ltblu", "navy", "grn", "navy", "navy", "ltblu", "navy", "navy", "trans", "ltblu", "navy", "navy", "navy"],
+      ["trans", "trans", "grn", "ltblu", "ltblu", "navy", "ltgrn", "navy", "navy", "navy", "navy", "navy", "navy", "ltgrn", "navy", "navy"],
+      ["ltgrn", "trans", "trans", "grn", "navy", "ltblu", "navy", "ltblu", "ltblu", "navy", "navy", "navy", "navy", "navy", "grn", "navy"],
+      ["trans", "ltgrn", "ltblu", "trans", "navy", "ltgrn", "ltblu", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy", "navy"],
+      ["trans", "trans", "trans", "trans", "ltblu", "ltblu", "navy", "grn", "navy", "navy", "navy", "ltblu", "navy", "ltblu", "navy", "navy"],
+      ["ltblu", "trans", "grn", "trans", "grn", "navy", "navy", "navy", "trans", "navy", "ltgrn", "navy", "navy", "navy", "grn", "navy"],
+      ["trans", "trans", "ltgrn", "ltblu", "trans", "navy", "navy", "ltblu", "trans", "trans", "navy", "ltblu", "navy", "ltblu", "navy", "navy"],
+      ["trans", "trans", "trans", "trans", "grn", "navy", "ltblu", "navy", "trans", "trans", "trans", "navy", "ltblu", "navy", "navy", "navy"],
+      ["trans", "ltgrn", "ltblu", "trans", "navy", "navy", "navy", "ltgrn", "trans", "trans", "trans", "trans", "navy", "navy", "ltblu", "navy"]
+    ]),
+    new GameBoardCard("venn", [
+      ["trans", "trans", "trans", "trans", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "drkorng", "drkorng", "drkorng", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "trans", "trans"],
+      ["trans", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "trans"],
+      ["trans", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "trans"],
+      ["ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng"],
+      ["ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng"],
+      ["ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng"],
+      ["trans", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "trans"],
+      ["trans", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "trans"],
+      ["trans", "trans", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "ltgrn", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "drkorng", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "ltgrn", "ltgrn", "ltgrn", "trans", "trans", "drkorng", "drkorng", "drkorng", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans"]
+    ]),
+    new GameBoardCard("penguin", [
+      ["trans", "trans", "trans", "trans", "trans", "trans", "black", "black", "black", "black", "trans", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "black", "black", "black", "black", "black", "black", "trans", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "black", "black", "trans", "trans", "trans", "trans", "black", "black", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "black", "trans", "black", "trans", "trans", "black", "trans", "black", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "black", "trans", "black", "trans", "trans", "black", "trans", "black", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "black", "black", "trans", "trans", "orng", "orng", "trans", "trans", "black", "black", "trans", "trans", "trans"],
+      ["trans", "trans", "black", "black", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "black", "black", "trans", "trans"],
+      ["trans", "trans", "black", "black", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "black", "black", "trans", "trans"],
+      ["trans", "trans", "black", "black", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "trans", "black", "black", "trans", "trans"],
+      ["trans", "trans", "trans", "black", "black", "trans", "trans", "trans", "trans", "trans", "trans", "black", "black", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "black", "trans", "trans", "trans", "trans", "trans", "trans", "black", "trans", "trans", "trans", "trans"],
+      ["trans", "trans", "trans", "trans", "trans", "drkorng", "ltgry", "black", "black", "ltgry", "drkorng", "trans", "trans", "trans", "trans", "trans"]
+    ])
   ];
 }

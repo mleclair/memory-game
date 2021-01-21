@@ -1,5 +1,4 @@
 import React from "react";
-//import Resources from "../resources/Resources";
 import Card from "./Card.js";
 
 export default class Board extends React.Component {
@@ -11,7 +10,6 @@ export default class Board extends React.Component {
     this.onNoMatch = this.onNoMatch.bind(this)
     this.onWin = this.onWin.bind(this)
     this.resetBoard = this.resetBoard.bind(this)
-    //this.onGameBoardSelectionChange = this.onGameBoardSelectionChange.bind(this)
     this.onChangeGameBoard = this.onChangeGameBoard.bind(this)
 
     this.state = {
@@ -22,24 +20,13 @@ export default class Board extends React.Component {
       selectedGameBoardName: props.selectedGameBoardName,
       gameBoard: props.gameBoard
     };
-    //this.gameBoard = props.gameBoard
   }
 
   /*    */
-  onChangeGameBoard(gameNamge) {
+  onChangeGameBoard(gameName) {
     this.render()
-    alert(gameNamge)
+    alert(gameName)
   }
-
-  //gameBoard
-
-  /*  
-  onGameBoardSelectionChange(name) {
-    //this.setState({gameBoard: Resources.gameBoards.find(gb => gb.name === name)})
-    //alert('Board.onGameBoardSelectionChange('+name+')')
-    this.props.resetBoard(name)
-    this.resetBoard(name)
-  }  */
 
   /*      */
   onTimerStart() {
@@ -143,15 +130,12 @@ export default class Board extends React.Component {
   }
 
   /*    */
-  renderCard(index, props) {
-    return (
-      <Card key={index}
-            value={props}
-            ref={index}
-            className={this.state.gameBoard.circles[index]}
-            onClick={(e) => this.handleCardClick(e, index, props.icon)} />
-    );
-  }
+  renderCard = (index, props) => (
+    <Card key={index}
+          value={props}
+          ref={index}
+          className={this.state.gameBoard.circles[index]}
+          onClick={(e) => this.handleCardClick(e, index, props.icon)} />);
 
   /*      */
   renderCards() {
@@ -175,13 +159,10 @@ export default class Board extends React.Component {
   }
 
   /*  Render Board  */
-  render() {
-    return (
-      <div className="box">
-        <div className={this.state.lockedDown}>
-          {this.renderCards()}
-        </div>
+  render = () => (
+    <div className={"box " + this.state.gameBoard.name} >
+      <div className={this.state.lockedDown}>
+        {this.renderCards()}
       </div>
-    );
-  }
+    </div>);
 }
