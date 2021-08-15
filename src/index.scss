@@ -289,6 +289,10 @@ body {
 					-o-transition: opacity 1s ease-in-out; /* Opera < 12.1 */
 					transition: opacity 1s ease-in-out;
 				}
+				div.game-info.winner > div.container {
+					opacity: 1;
+					transition: none;
+				} 
 				div.game-info {
 					position: relative;
 					flex: 2;
@@ -329,36 +333,37 @@ body {
 							div.title.winner {
 								pointer-events: auto;
 								cursor: pointer;
-								color: $med-grn;
+								color: $dark-blue;
 								z-index: 100;
 								-webkit-animation: glow 1s ease-in-out infinite alternate;
 								-moz-animation: glow 1s ease-in-out infinite alternate;
 								animation: glow 1s ease-in-out infinite alternate;
 								@-webkit-keyframes glow {
 									from {
-										text-shadow: 0 0 0.25vw #ffffff, 0 0 0.5vw $med-grn, 0 0 1vw $med-grn, 0 0 1.5vw $med-grn, 0 0 2vw $med-grn, 0 0 2.5vw $med-grn
+										text-shadow: 0 0 0.25vw #ffffff, 0 0 0.5vw $med-blue, 0 0 1vw $med-blue, 0 0 1.5vw $med-blue, 0 0 2vw $med-blue, 0 0 2.5vw $med-blue
 									}
 									to {
-										text-shadow: 0 0 0.5vw #ffffff, 0 0 1vw $lt-grn, 0 0 1.5vw $lt-grn, 0 0 2vw $lt-grn, 0 0 2.5vw $lt-grn, 0 0 3vw $lt-grn, 0 0 3.25vw $lt-grn
+										text-shadow: 0 0 0.5vw #ffffff, 0 0 1vw $sky-blue, 0 0 1.5vw $sky-blue, 0 0 2vw $sky-blue, 0 0 2.5vw $sky-blue, 0 0 3vw $sky-blue, 0 0 3.25vw $sky-blue
 									}
 								}
 								@keyframes glow {
 									from {
-										text-shadow: 0 0 0.25vw #ffffff, 0 0 0.5vw $med-grn, 0 0 1vw $med-grn, 0 0 1.5vw $med-grn, 0 0 2vw $med-grn, 0 0 2.5vw $med-grn
+										text-shadow: 0 0 0.25vw #ffffff, 0 0 0.5vw $med-blue, 0 0 1vw $med-blue, 0 0 1.5vw $med-blue, 0 0 2vw $med-blue, 0 0 2.5vw $med-blue
 									}
 									to {
-										text-shadow: 0 0 0.5vw #ffffff, 0 0 1vw $lt-grn, 0 0 1.5vw $lt-grn, 0 0 2vw $lt-grn, 0 0 2.5vw $lt-grn, 0 0 3vw $lt-grn, 0 0 3.25vw $lt-grn
+										text-shadow: 0 0 0.5vw #ffffff, 0 0 1vw $sky-blue, 0 0 1.5vw $sky-blue, 0 0 2vw $sky-blue, 0 0 2.5vw $sky-blue, 0 0 3vw $sky-blue, 0 0 3.25vw $sky-blue
 									}
 								}
 							}
 							div.scoreboard {
 								background-color: $background;
 								border-radius: 2vw;
+								margin-top: .5vw;
 								div.scoreboard-grid {
 									@extend %no-edge;
 									grid-column-gap: 2vw;
 									grid-template-columns: auto auto;
-									padding: 5% 6% 3% 6%;
+									padding: 1.2vw 0 1vw 1.2vw;
 									div {
 										margin: 0px;
 										padding: 0% 2% 2% 2%;
